@@ -1,0 +1,20 @@
+.page_404 {
+  width: 100%;
+  min-height: calc(100vh - 350px);
+  .button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s;
+    -moz-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+    -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+
+    &:hover {
+      background-color: #0056b3;
+    }
+  }
+}

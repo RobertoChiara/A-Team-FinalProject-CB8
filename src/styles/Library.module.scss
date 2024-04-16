@@ -1,0 +1,4 @@
+@use "../assets/mixins";
+.main__Container {
+  @include mixins.flex(column, center, center);
+}

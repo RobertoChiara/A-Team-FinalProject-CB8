@@ -1,0 +1,15 @@
+.button {
+    padding: 8px;
+    background-color: deeppink;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    box-shadow: 0 0 5px 5px rgb(85, 0, 255);
+    cursor: pointer;
+    transition: all ease-in-out 0.2s;
+
+    &:hover {
+      background-color: darkmagenta;
+      transform: scale(1.2);
+    }
+  }

@@ -1,0 +1,22 @@
+@use "../../assets/mixins";
+
+.main__Card {
+  @include mixins.flex(column, center, center);
+
+  padding: 15px;
+  width: 400px;
+
+  .main__CardTitle {
+    @include mixins.flex(column, center, center);
+    color: rgb(55, 235, 255);
+  }
+
+  .main__CardImage {
+    @include mixins.flex(column, center, center);
+    border: 1px solid rgb(255, 0, 255);
+  }
+
+  .main__CardP {
+    display: none;
+  }
+}

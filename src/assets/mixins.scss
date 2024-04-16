@@ -1,0 +1,48 @@
+//Display flex mixin
+//"row" is the default value for flex-direction
+//"flex-start" or "inherit" is the default value for justify-content and align-items
+
+@mixin flex($dir: row, $just: flex-start, $align: flex-start, $gap: 0) {
+  display: flex;
+  flex-direction: $dir;
+  justify-content: $just;
+  align-items: $align;
+  gap: $gap;
+}
+
+//Position absolute/relative/fixed mixin
+//"auto" is the default value for top-right-bottom-left
+
+@mixin position($pos, $top: auto, $right: auto, $bottom: auto, $left: auto) {
+  position: $pos;
+  top: $top;
+  right: $right;
+  bottom: $bottom;
+  left: $left;
+}
+
+//Media queries mixin
+
+@mixin breakpoint($point) {
+  @if $point == mobile {
+    @media (max-width: 480px) {
+      @content;
+    }
+  } @else if $point == tablet {
+    @media (min-width: 481px) {
+      @content;
+    }
+  } @else if $point == laptop {
+    @media (min-width: 769px) {
+      @content;
+    }
+  } @else if $point == desktop {
+    @media (min-width: 1025px) {
+      @content;
+    }
+  } @else if $point == large {
+    @media (min-width: 1201px) {
+      @content;
+    }
+  }
+}

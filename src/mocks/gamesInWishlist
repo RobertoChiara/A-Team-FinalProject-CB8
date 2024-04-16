@@ -1,0 +1,3 @@
+let favorites = [];
+
+export default favorites;

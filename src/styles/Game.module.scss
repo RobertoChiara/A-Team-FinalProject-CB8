@@ -1,0 +1,96 @@
+@use "../assets/mixins";
+
+.game {
+  margin-bottom: 125px;
+
+  .image_container {
+    position: relative;
+
+    .image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 8px;
+      opacity: 1;
+    }
+
+    .hide-image {
+      opacity: 0;
+    }
+  }
+
+  .gallery {
+    @include mixins.flex(row, flex-start, flex-start, 20px);
+    margin-block: 20px;
+    overflow-y: auto;
+    scroll-snap-type: x mandatory;
+
+    &__img_container {
+      position: relative;
+      min-width: 180px;
+      scroll-snap-align: flex-start;
+      padding-bottom: 10px;
+
+      .image__gallery {
+        object-fit: cover;
+        opacity: 1;
+        height: 120px;
+        border-radius: 8px;
+        cursor: pointer;
+      }
+
+      .hide-image__gallery {
+        opacity: 0;
+      }
+
+      .image__gallery__active {
+        border: 2px solid var(--main-color);
+      }
+    }
+  }
+
+  .title {
+    font-weight: bold;
+    margin-bottom: 8px;
+  }
+
+  .text {
+    text-decoration: underline;
+    font-weight: bold;
+    color: deeppink;
+  }
+
+  // .description1 {
+
+  // }
+
+  .description2 {
+    @include mixins.breakpoint(mobile) {
+    }
+  }
+
+  .description3 {
+    color: deeppink;
+  }
+
+  .button__container {
+    @include mixins.flex(row, flex-start, center, 10px);
+    margin-top: 8px;
+
+    .button {
+      padding: 8px;
+      background-color: deeppink;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      box-shadow: 0 0 5px 5px rgb(85, 0, 255);
+      cursor: pointer;
+      transition: all ease-in-out 0.2s;
+
+      &:hover {
+        background-color: darkmagenta;
+        transform: scale(1.2);
+      }
+    }
+  }
+}

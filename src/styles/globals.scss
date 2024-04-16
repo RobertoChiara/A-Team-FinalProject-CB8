@@ -1,0 +1,85 @@
+@use "../assets/mixins";
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+
+:root {
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  --main-color: #ec2593;
+  --second-color: aqua;
+  --main-bg-color: #19191d;
+  --gradient-color: linear-gradient(45deg, #2196f3, #e91e63);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+/* Chrome, Edge and Safari */
+*::-webkit-scrollbar {
+  height: 6px;
+  width: 15px;
+}
+
+*::-webkit-scrollbar-track {
+  border-radius: 0px;
+
+  @include mixins.breakpoint(laptop) {
+    background-color: #333;
+  }
+}
+
+*::-webkit-scrollbar-thumb {
+  background: var(--gradient-color);
+}
+
+body {
+  color: white;
+  background-color: var(--main-bg-color);
+  // overflow: hidden;
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+  -webkit-user-drag: none;
+}
+
+.main-layout {
+  max-width: 1440px;
+
+  // overflow-y: auto;
+  margin-inline: auto;
+  margin-top: 70px;
+  margin-bottom: 50px;
+  padding-inline: 16px;
+  @include mixins.breakpoint(laptop) {
+    padding-inline: 40px;
+    margin-bottom: 50px;
+  }
+}

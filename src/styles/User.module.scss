@@ -1,0 +1,41 @@
+@use "../assets/mixins";
+
+.user__Container {
+  @include mixins.flex(column, center, center);
+
+  .user__Image {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    margin-bottom: 20px;
+  }
+
+  .user__Name {
+    font-size: 36px;
+    font-weight: 700;
+    margin-bottom: 10px;
+  }
+
+  .user__ListContainer {
+    @include mixins.flex(row, center, center);
+    margin-top: 20px;
+
+    .user__List {
+      margin-top: 20px;
+      padding: 10px;
+      border-radius: 10px;
+      border: 2px solid #00ffff;
+      list-style-type: none;
+    }
+  }
+  .user__Btn {
+    margin-top: 20px;
+    padding: 10px 20px;
+    border-radius: 10px;
+    background-color: #00ffff;
+    color: #000000;
+    font-size: 18px;
+    font-weight: 700;
+    cursor: pointer;
+  }
+}

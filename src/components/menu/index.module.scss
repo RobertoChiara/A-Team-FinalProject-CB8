@@ -1,0 +1,89 @@
+@use "../../assets/mixins";
+.navigation {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 70px;
+  background: linear-gradient(45deg, #2196f3, #e91e63);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  border-top: 4px solid white;
+
+  .btn_container {
+    display: flex;
+    width: 350px;
+
+    .list {
+      position: relative;
+      width: 100%;
+      height: 70px;
+      list-style: none;
+      z-index: 1;
+      bottom: -18px;
+
+      a {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        width: 100%;
+        text-align: center;
+        font-weight: 500;
+
+        .icon {
+          position: relative;
+          display: block;
+          line-height: 75px;
+          font-size: 1.5em;
+          text-align: center;
+          color: #fff;
+          transition: 0.5s;
+          z-index: 999;
+        }
+        .icon_active {
+          transform: translateY(-32px);
+        }
+
+        .text {
+          position: absolute;
+          color: #fff;
+          font-weight: 400;
+          font-size: 0.75em;
+          letter-spacing: 0.05em;
+          opacity: 0;
+          transform: translateY(20px);
+          transition: 0.5s;
+        }
+        .text_active {
+          opacity: 1;
+          transform: translateY(10px);
+        }
+
+        .circle {
+          position: absolute;
+          display: block;
+          width: 50px;
+          height: 50px;
+          background: transparent;
+          border-radius: 50%;
+          border: 4px solid #fff;
+          transform: translateY(-37px) scale(0);
+        }
+        .circle_active {
+          background: linear-gradient(45deg, #2196f3, #e91e63);
+
+          transition: 0.5s;
+          transition-delay: 0.2s;
+          transform: translateY(-30px) scale(1);
+        }
+      }
+    }
+  }
+  @include mixins.breakpoint(laptop) {
+    display: none;
+  }
+}

@@ -1,0 +1,100 @@
+@use "../../assets/mixins";
+
+.carousel_container {
+  //style in mobile per carousel_container
+  @include mixins.breakpoint(desktop) {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 60vh;
+    margin-top: 90px;
+  }
+
+  .Carousel {
+    position: relative;
+    height: 250px;
+
+    @include mixins.breakpoint(desktop) {
+      height: 90%;
+      width: 100%;
+    }
+
+    .gradient {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(
+        0deg,
+        var(--main-color) 5%,
+        rgba(255, 255, 255, 0) 35%
+      );
+
+      @include mixins.breakpoint(desktop) {
+        // gradient in desktop
+      }
+    }
+
+    .cover {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+
+      @include mixins.breakpoint(desktop) {
+        //style cover in desktop
+      }
+    }
+
+    .hide-cover {
+      opacity: 0;
+    }
+
+    .title {
+      @include mixins.position(absolute, auto, auto, 5px, 10px);
+      font-size: 20px;
+
+      @include mixins.breakpoint(laptop) {
+        font-size: 50px;
+      }
+    }
+  }
+
+  .addIcon {
+    @include mixins.position(relative, auto, auto, 25px, auto);
+
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 5px;
+    font-size: 20px;
+    gap: 8px;
+
+    @include mixins.breakpoint(desktop) {
+      font-size: 35px;
+      gap: 15px;
+      margin-right: 10px;
+      bottom: 42px;
+    }
+  }
+
+  .bullets {
+    margin-top: 20px;
+    @include mixins.flex(row, center, flex-start, 25px);
+
+    .bullet {
+      height: 7px;
+      width: 7px;
+      background-color: white;
+      border-radius: 50%;
+      cursor: pointer;
+    }
+
+    .bullet-active {
+      background-color: transparent;
+    }
+
+    .bullet-pacman {
+      transform: scale(3.5) translateY(-2.3px);
+      color: yellow;
+    }
+  }
+}
