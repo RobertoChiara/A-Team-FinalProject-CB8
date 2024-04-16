@@ -1,57 +1,69 @@
+@use "../assets/mixins";
+
 .contact {
+  @include mixins.flex(column, space-between, center, 40px);
   background: linear-gradient(45deg, #2196f3, #e91e63);
   padding: 2rem 0;
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
   width: 100%;
-  gap: 40px;
-  color:#01012b;
-   
+  color: #19191d;
+  border-radius: 8px;
+
   .container {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
+    @include mixins.flex(column, center, center, 20px);
     max-width: auto;
     margin: 0 auto;
     color: #01012b;
-    //border: 1px solid red;
+    text-decoration: underline;
   }
-    
+
   .inputGroup {
-    margin-bottom: 1rem;  
+    @include mixins.flex(column, flex-start, stretch, 20px);
+    width: 100%;
+    margin-bottom: 1rem;
+
+    input,
+    textarea {
+      width: 100%;
+      height: 20px;
+      border: none;
+    }
+
+    .inputMessage {
+      height: 50px;
+    }
   }
-    
-  .contact-textarea {
-    height: 10rem;
-    resize: vertical;
-    border-radius: 25px;
-  }
-  
+
   .submitButton {
     background: linear-gradient(45deg, #2196f3, #e91e63);
-    padding: 1rem 2rem;    
+    padding: 1rem 2rem;
     border-color: #01012b;
-    border-radius: 10px;
+    border-radius: 8px;
+    align-self: center;
     cursor: pointer;
-    transition: background-color 0.3s;
+    transition: transform 0.3s ease-in-out;
+
+    &:hover {
+      transform: scale(1.1);
+    }
   }
-  
-  .linkContainer{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 5px;    
+
+  .linkContainer {
+    @include mixins.flex(column, center, center, 5px);
   }
 
   .link {
-   color:aqua;
-   border: 1px solid white;
-   border-radius: 5px;
-   padding: 5px;
+    font-size: 18.72px;
+    color: aqua;
+    text-decoration: none;
+    transition: color 0.3s ease-in-out;
+
+    &:hover {
+      color: #01012b;
+    }
   }
 
-}  
-
-   
+  .teamContainer {
+    @include mixins.flex(column, center, center, 20px);
+    margin-top: 2rem;
+  }
+}

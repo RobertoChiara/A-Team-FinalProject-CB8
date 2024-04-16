@@ -6,30 +6,33 @@ import Link from "next/link";
 const Contact = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
+  const [telephone, setTelephone] = useState("");
   const [message, setMessage] = useState("");
   const router = useRouter();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const data = { name, email, message };
+    const data = { name, email, telephone, message };
 
     try {
-      const response = await fetch("/api/contact", {
+      const response = await fetch("/api/guest", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(data),
       });
 
       if (response.ok) {
-        alert("Messaggio inviato correttamente!");
+        alert("Message sent correctly!");
         router.push("/");
       } else {
-        alert("Errore durante l'invio del messaggio");
+        alert("Error sending message. Please try again later.");
       }
     } catch (error) {
       console.error(error);
-      alert("Si è verificato un problema. Riprova più tardi.");
+      alert(
+        "A problem occurred while sending the message. Please try again later."
+      );
     }
   };
 
@@ -64,11 +67,11 @@ const Contact = () => {
           <div className={styles.inputGroup}>
             <label htmlFor="telephone">Telephone:</label>
             <input
-              type="telephone"
+              type="text"
               id="telephone"
               name="telephone"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
+              value={telephone}
+              onChange={(e) => setTelephone(e.target.value)}
               required
             />
           </div>
@@ -76,6 +79,7 @@ const Contact = () => {
           <div className={styles.inputGroup}>
             <label htmlFor="message">Message:</label>
             <textarea
+              className={styles.inputMessage}
               id="message"
               name="message"
               value={message}
@@ -90,7 +94,7 @@ const Contact = () => {
       </div>
 
       <div className={styles.linkContainer}>
-        <h3>Final Project team &ldquo;A&ldquo; of the Codig Bootcamp</h3>
+        <h3>Final Project team &ldquo;A&ldquo; of the Codig Bootcamp CB8:</h3>
         <Link
           className={styles.link}
           rel="edgemony"
@@ -100,13 +104,17 @@ const Contact = () => {
         </Link>
       </div>
 
-      <div>
+      <div className={styles.teamContainer}>
         <h1>Team members:</h1>
-        <p>Roberto Chiara</p>
-        <p>Maria Celeste Massaro</p>
-        <p>Christian Schillaci</p>
-        <p>Andrea Torrisi</p>
-        <p>Alex Venutelli</p>
+        <Link href="https://github.com/RobertoChiara">Roberto Chiara</Link>
+        <Link href="https://github.com/MCelesteMassaro">
+          Maria Celeste Massaro
+        </Link>
+        <Link href="https://github.com/ChriSchillaci">Christian Schillaci</Link>
+        <Link href="https://github.com/AndreaTorris">Andrea Torrisi</Link>
+        <Link href="https://github.com/AlexVenutelli">Alex Venutelli</Link>
+        <h1>Team Leader</h1>
+        <Link href="https://github.com/giusene">Giuseppe Senettone</Link>
       </div>
     </section>
   );
