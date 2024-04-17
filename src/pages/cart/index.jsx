@@ -67,8 +67,8 @@ function Cart() {
 
   return (
     <div className={styles.cart}>
-      <h2>List of your carted games</h2>
-      <Checkout allGamesInCart={cart} onPurchase={refreshCart} />
+      <h2 className={styles.cart__Title}>List of games in your carted</h2>
+
       <div className={styles.cardContainer}>
         {cart && cart.length > 0 ? (
           cart.map((game) => {
@@ -85,6 +85,7 @@ function Cart() {
           <p>No games in cart.</p>
         )}
       </div>
+      <Checkout allGamesInCart={cart} onPurchase={refreshCart} />
     </div>
   );
 }

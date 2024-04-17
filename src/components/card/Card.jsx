@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import styles from "./index.module.scss";
 import Image from "next/image";
 import Link from "next/link";
@@ -23,7 +23,7 @@ const Card = ({ game, typeClass = "", cardRectagular = "" }) => {
               loading="lazy"
               placeholder="blur"
               blurDataURL={`data:image/svg+xml;base64,${toBase64(
-                shimmer(700, 475)
+                shimmer(1920, 1080)
               )}`}
             />
           )}

@@ -23,13 +23,12 @@
       height: 100%;
 
       @include mixins.breakpoint(desktop) {
-        width: 33vw;
         padding-right: 20px;
       }
 
       .logo {
-        height: 65px;
-        width: auto;
+        height: auto;
+        width: 65px;
         padding: 2px;
       }
 
@@ -38,7 +37,7 @@
         height: 100%;
         width: 84%;
 
-        @include mixins.breakpoint(desktop) {
+        @include mixins.breakpoint(laptop) {
           @include mixins.flex(row, flex-start, inherit, 10px);
           gap: 20px;
         }
@@ -69,6 +68,7 @@
       display: flex;
 
       @include mixins.breakpoint(laptop) {
+        // width: 33vw;
         width: 33vw;
       }
 
@@ -81,7 +81,7 @@
         border-radius: 8px;
         padding: 8px;
 
-        background-color: #494949d2;
+        background-color: #5f5f5fd2;
         &:focus {
           outline: none;
         }
@@ -89,13 +89,12 @@
     }
     .navbar_userMenu {
       height: 100%;
-
       display: flex;
       justify-content: flex-end;
       align-items: center;
       gap: 10px;
       @include mixins.breakpoint(laptop) {
-        width: 33vw;
+        // width: 33vw;
       }
 
       .welcome_message {
@@ -106,6 +105,10 @@
           font-weight: bold;
           color: aqua;
         }
+      }
+
+      .btn-login {
+        font-size: 15px;
       }
       .btn-signup {
         font-size: 15px;

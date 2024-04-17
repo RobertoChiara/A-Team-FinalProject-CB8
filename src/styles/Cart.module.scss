@@ -4,82 +4,33 @@
   width: 100%;
   min-height: calc(100vh - 350px);
 
+  .cart__Title {
+    text-align: center;
+    color: #02ffff;
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    text-shadow: 0 0 30px #00eaff95;
+  }
+
   .cardContainer {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+    @include mixins.flex(column, space-between, center, 40px);
     width: 100%;
   }
 
-  .floatingPrice {
-    width: 200px;
-    height: auto;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 15px;
-    gap: 15px;
-    position: fixed;
-    background-color: rgba(255, 20, 147, 0.5);
-    border-radius: 8px;
-
-    @include mixins.breakpoint(mobile) {
-      position: fixed;
-      bottom: 70px;
-      left: 0;
-      width: 100%;
-      height: 70px;
-      background-color: rgba(255, 20, 147);
-      gap: 5px;
-      border-radius: 0px;
-    }
-
-    .checkoutButton {
-      padding: 8px;
-      background-color: deeppink;
-      color: white;
-      border: none;
-      border-radius: 8px;
-
-      cursor: pointer;
-      transition: all ease-in-out 0.2s;
-      width: 50%;
-
-      &:hover {
-        background-color: rgba(255, 20, 147, 0.5);
-        transform: scale(1.2);
-      }
-    }
-  }
-
   .card {
-    width: 40%;
-
-    border-top: 1px solid #ccc;
-    border-bottom: 1px solid #ccc;
-    margin: 0 auto;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 35px;
+    @include mixins.flex(row, space-between, 40px);
+    height: 200px;
+    border-bottom: 1px solid #02ffff;
     padding: 10px;
 
     @include mixins.breakpoint(mobile) {
+      @include mixins.flex(row, space-between, center);
       width: 100%;
-      height: 110px;
-      border-top: 1px solid #ccc;
-      border-bottom: 1px solid #ccc;
-      margin: 0 auto;
-      display: flex;
-      align-items: center;
-
-      gap: 35px;
+      height: 200px;
+      border-bottom: 1px solid #02ffff;
     }
   }
-
-  //
-
-  //
 
   .card img {
     width: 150px;
@@ -87,17 +38,17 @@
     border-radius: 15px 15px;
 
     @include mixins.breakpoint(mobile) {
-      width: 100px;
-      height: 70px;
+      width: 200px;
+      height: 150px;
+      object-fit: cover;
+
       border-radius: 15px 15px;
     }
   }
 
   .card h4 {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    gap: 5px;
+    @include mixins.flex(column, space-around, center, 5px);
+    font-size: 14px;
   }
 
   .card p {
@@ -108,20 +59,18 @@
   }
 
   .button {
-    display: flex;
-    justify-content: flex-end;
+    padding: 8px;
+    background-color: deeppink;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    box-shadow: 0 0 5px 5px rgb(85, 0, 255);
+    cursor: pointer;
+    transition: all ease-in-out 0.2s;
+
+    &:hover {
+      background-color: darkmagenta;
+      transform: scale(1.2);
+    }
   }
 }
-
-//   .buttonContainer{
-//     display: flex;
-//     gap: 10px;
-//         }
-
-//   .mobileCartItemButton{
-//     @include mixins.breakpoint(tablet){
-//       display: none;
-
-//       }
-
-//   }

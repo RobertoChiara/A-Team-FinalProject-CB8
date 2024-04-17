@@ -1,11 +1,13 @@
 import { FaHeartCirclePlus } from "react-icons/fa6";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Modal from "../modal/Modal";
+import styles from "./index.module.scss";
 
 const AddToWishlistButton = ({ game }) => {
   const [showModalNoUsername, setshowModalNoUsername] = useState(false);
   const [showModalAddtoWishlist, setshowModalAddtoWishlist] = useState(false);
-  const [showModalAlreadyInWishlist, setshowModalAlreadyInWishlist] = useState(false);
+  const [showModalAlreadyInWishlist, setshowModalAlreadyInWishlist] =
+    useState(false);
   const username =
     typeof window !== "undefined" && localStorage.getItem("username");
 
@@ -42,14 +44,14 @@ const AddToWishlistButton = ({ game }) => {
       const data = await res.json();
 
       console.log("Response:", data);
-      
+
       if (data.success === true) {
-        setshowModalAddtoWishlist(true);        
+        setshowModalAddtoWishlist(true);
       }
       if (data.message === "Game already in wishlist") {
         setshowModalAlreadyInWishlist(true);
-        return;        
-      }   
+        return;
+      }
 
       if (!data.success) {
         throw new Error(data.message);
@@ -59,24 +61,41 @@ const AddToWishlistButton = ({ game }) => {
     }
   };
 
+  useEffect(() => {
+    if (
+      showModalNoUsername ||
+      showModalAddtoWishlist ||
+      showModalAlreadyInWishlist
+    ) {
+      const timer = setTimeout(() => {
+        setshowModalNoUsername(false);
+        setshowModalAddtoWishlist(false);
+        setshowModalAlreadyInWishlist(false);
+      }, 2000);
+      return () => clearTimeout(timer);
+    }
+  }, [showModalNoUsername, showModalAddtoWishlist, showModalAlreadyInWishlist]);
+
   return (
     <>
-      <FaHeartCirclePlus onClick={handleAddToWishlist} />
       {showModalNoUsername && (
         <Modal onClose={() => setshowModalNoUsername(false)}>
           Only logged user can add to wishlist.
-        </Modal>)}
-        {showModalAddtoWishlist && (
-          <Modal onClose={() => setshowModalAddtoWishlist(false)}>
-            Game Added to Wishlist!
-          </Modal>      
-        )}
-        {showModalAlreadyInWishlist && (
-          <Modal onClose={() => setshowModalAlreadyInWishlist(false)}>
-            Game Already in Wishlist.
-          </Modal>      
-        )}
-      
+        </Modal>
+      )}
+      {showModalAddtoWishlist && (
+        <Modal onClose={() => setshowModalAddtoWishlist(false)}>
+          Game Added to Wishlist!
+        </Modal>
+      )}
+      {showModalAlreadyInWishlist && (
+        <Modal onClose={() => setshowModalAlreadyInWishlist(false)}>
+          Game Already in Wishlist.
+        </Modal>
+      )}
+      <button className={styles.button}>
+        <FaHeartCirclePlus onClick={handleAddToWishlist} />
+      </button>
     </>
   );
 };

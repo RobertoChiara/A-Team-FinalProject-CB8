@@ -1,6 +1,7 @@
 import { FaCartPlus } from "react-icons/fa";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Modal from "../modal/Modal";
+import styles from "./index.module.scss";
 
 const AddToCartButton = ({ game }) => {
   const [showModalNoUsername, setshowModalNoUsername] = useState(false);
@@ -17,12 +18,7 @@ const AddToCartButton = ({ game }) => {
       setshowModalNoUsername(true);
       return;
     }
-    
-    
-   
 
-
-     
     console.log("Username:", username);
 
     try {
@@ -47,48 +43,54 @@ const AddToCartButton = ({ game }) => {
       const data = await res.json();
 
       console.log("Response:", data);
-      
+
       if (data.success === true) {
-        setshowModalAddtoCart(true);        
+        setshowModalAddtoCart(true);
       }
       if (data.message === "Game already in cart") {
         setshowModalAlreadyInCart(true);
-        return;        
-      }       
-     
+        return;
+      }
 
       if (!data.success) {
-        
         throw new Error(data.message);
-        
       }
-    } catch (error) {   
-      
+    } catch (error) {
       console.error("An error occurred:", error);
     }
-
-   
-    
   };
+
+  useEffect(() => {
+    if (showModalNoUsername || showModalAddtoCart || showModalAlreadyInCart) {
+      const timer = setTimeout(() => {
+        setshowModalNoUsername(false);
+        setshowModalAddtoCart(false);
+        setshowModalAlreadyInCart(false);
+      }, 2000);
+      return () => clearTimeout(timer);
+    }
+  }, [showModalNoUsername, showModalAddtoCart, showModalAlreadyInCart]);
 
   return (
     <>
-      <FaCartPlus onClick={handleAddToCart} />
       {showModalNoUsername && (
         <Modal onClose={() => setshowModalNoUsername(false)}>
           Only logged user can add to cart
-        </Modal>      
+        </Modal>
       )}
-     {showModalAddtoCart && (
+      {showModalAddtoCart && (
         <Modal onClose={() => setshowModalAddtoCart(false)}>
           Game Added to Cart!
-        </Modal>      
+        </Modal>
       )}
       {showModalAlreadyInCart && (
         <Modal onClose={() => setshowModalAlreadyInCart(false)}>
           Game Already in Cart.
-        </Modal>      
+        </Modal>
       )}
+      <button className={styles.button}>
+        <FaCartPlus onClick={handleAddToCart} />
+      </button>
     </>
   );
 };

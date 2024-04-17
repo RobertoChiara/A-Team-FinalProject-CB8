@@ -2,7 +2,7 @@ import { FaHeart } from "react-icons/fa";
 import { IoLibrary, IoHomeSharp } from "react-icons/io5";
 import { FaShoppingCart } from "react-icons/fa";
 import { MdContactSupport } from "react-icons/md";
-import { FaShop } from "react-icons/fa6";
+import { FaStore } from "react-icons/fa";
 
 const menuLinks = [
   {
@@ -11,7 +11,7 @@ const menuLinks = [
     text: "Home",
   },
   {
-    icon: <FaShop />,
+    icon: <FaStore />,
     link: "/store",
     text: "Store",
   },

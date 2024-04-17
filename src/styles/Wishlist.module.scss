@@ -1,0 +1,17 @@
+@use "../assets/mixins";
+.wish__Title {
+  text-align: center;
+  color: #02ffff;
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  text-shadow: 0 0 30px #00eaff95;
+}
+.wish__Container {
+  @include mixins.flex(column, center, center);
+
+  .buttonContainer {
+    @include mixins.flex(row, flex-start, center, 20px);
+    padding: 8px;
+  }
+}

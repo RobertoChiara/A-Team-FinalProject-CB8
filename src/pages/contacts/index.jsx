@@ -92,30 +92,6 @@ const Contact = () => {
           </button>
         </form>
       </div>
-
-      <div className={styles.linkContainer}>
-        <h3>Final Project team &ldquo;A&ldquo; of the Codig Bootcamp CB8:</h3>
-        <Link
-          className={styles.link}
-          rel="edgemony"
-          href="https://edgemony.com"
-        >
-          Edgemony
-        </Link>
-      </div>
-
-      <div className={styles.teamContainer}>
-        <h1>Team members:</h1>
-        <Link href="https://github.com/RobertoChiara">Roberto Chiara</Link>
-        <Link href="https://github.com/MCelesteMassaro">
-          Maria Celeste Massaro
-        </Link>
-        <Link href="https://github.com/ChriSchillaci">Christian Schillaci</Link>
-        <Link href="https://github.com/AndreaTorris">Andrea Torrisi</Link>
-        <Link href="https://github.com/AlexVenutelli">Alex Venutelli</Link>
-        <h1>Team Leader</h1>
-        <Link href="https://github.com/giusene">Giuseppe Senettone</Link>
-      </div>
     </section>
   );
 };

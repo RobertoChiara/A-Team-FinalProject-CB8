@@ -4,33 +4,37 @@
   @include mixins.flex(column, space-between, center, 40px);
   background: linear-gradient(45deg, #2196f3, #e91e63);
   padding: 2rem 0;
+  text-align: center;
   width: 100%;
-  color: #19191d;
-  border-radius: 8px;
+  color: #01012b;
 
   .container {
-    @include mixins.flex(column, center, center, 20px);
+    @include mixins.flex(column, flex-end, center, 40px);
+    align-items: center;
     max-width: auto;
     margin: 0 auto;
     color: #01012b;
-    text-decoration: underline;
+    gap: 1rem;
   }
 
   .inputGroup {
-    @include mixins.flex(column, flex-start, stretch, 20px);
-    width: 100%;
     margin-bottom: 1rem;
+    @include mixins.flex(row, space-between);
+    gap: 1rem;
 
-    input,
     textarea {
-      width: 100%;
-      height: 20px;
-      border: none;
+      width: 200px;
     }
 
-    .inputMessage {
-      height: 50px;
+    input {
+      width: 200px;
     }
+  }
+
+  .contact-textarea {
+    height: 10rem;
+    resize: vertical;
+    border-radius: 25px;
   }
 
   .submitButton {
@@ -45,25 +49,5 @@
     &:hover {
       transform: scale(1.1);
     }
-  }
-
-  .linkContainer {
-    @include mixins.flex(column, center, center, 5px);
-  }
-
-  .link {
-    font-size: 18.72px;
-    color: aqua;
-    text-decoration: none;
-    transition: color 0.3s ease-in-out;
-
-    &:hover {
-      color: #01012b;
-    }
-  }
-
-  .teamContainer {
-    @include mixins.flex(column, center, center, 20px);
-    margin-top: 2rem;
   }
 }

@@ -1,6 +1,7 @@
 import { FaHeartCircleMinus } from "react-icons/fa6";
 import { useState } from "react";
 import Modal from "../modal/Modal";
+import styles from "./index.module.scss";
 
 const RemoveFromWishlistButton = ({ game, onRemove }) => {
   const [showModal, setShowModal] = useState(false);
@@ -55,10 +56,17 @@ const RemoveFromWishlistButton = ({ game, onRemove }) => {
 
   return (
     <>
-      <FaHeartCircleMinus onClick={handleRemoveFromWishlist} />
       {showModal && (
-        <Modal onClose={() => setShowModal(false)}>{modalMessage}</Modal>
+        <Modal
+          onClose={() => setShowModal(false)}
+          isModalVisible={showModal && true}
+        >
+          {modalMessage}
+        </Modal>
       )}
+      <button className={styles.button}>
+        <FaHeartCircleMinus onClick={handleRemoveFromWishlist} />
+      </button>
     </>
   );
 };

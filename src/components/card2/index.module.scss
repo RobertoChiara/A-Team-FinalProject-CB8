@@ -1,22 +1,25 @@
 @use "../../assets/mixins";
+.linkCard {
+  @include mixins.flex(column, flex-start, flex-start);
+  text-align: left;
+}
 
-.main__Card {
-  @include mixins.flex(column, center, center);
-
+.lib__Card {
+  @include mixins.flex(row, flex-start, center);
   padding: 15px;
-  width: 400px;
+  border-bottom: 1px solid #ffffff;
 
-  .main__CardTitle {
-    @include mixins.flex(column, center, center);
-    color: rgb(55, 235, 255);
+  .lib__CardTitle {
+    color: #ffffff;
+    margin-top: 10px;
   }
 
-  .main__CardImage {
-    @include mixins.flex(column, center, center);
-    border: 1px solid rgb(255, 0, 255);
+  .lib_CardImage {
+    height: auto;
+    width: 480px;
   }
 
-  .main__CardP {
+  .lib__CardP {
     display: none;
   }
 }

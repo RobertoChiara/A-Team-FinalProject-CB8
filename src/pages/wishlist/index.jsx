@@ -1,5 +1,3 @@
-//LOGICA rimozione da wishlist
-
 import { useEffect, useState } from "react";
 import withAuth from "./../../components/withAuth/WithAuth";
 import RemoveFromWishlistButton from "../../components/removeFromWishlist/RemoveFromWishlist";
@@ -51,17 +49,26 @@ function Wishlist() {
 
   return (
     <div>
-      <h2>List of your wishlisted games</h2>
+      <h2 className={styles.wish__Title}>List of your wishlisted games</h2>
       {wishlist && wishlist.length > 0 ? (
         wishlist.map((game) => {
           return (
-            <div key={game.slug} className={styles.card__Container}>
-              <Card2 game={game} />
-              <RemoveFromWishlistButton
+            <div key={game.slug} className={styles.wish__Container}>
+              <Card2
                 game={game}
-                onRemove={removeFromWishlist}
+                key={game.slug}
+                typeClass="wish__Card"
+                typeClassTitle="wish__CardTitle"
+                typeClassImage="wish__CardImage"
+                typeClassP="wish__CardP"
               />
-              <AddToCartButton game={game} onRemove={removeFromWishlist} />
+              <div className={styles.buttonContainer}>
+                <RemoveFromWishlistButton
+                  game={game}
+                  onRemove={removeFromWishlist}
+                />
+                <AddToCartButton game={game} onRemove={removeFromWishlist} />
+              </div>
             </div>
           );
         })

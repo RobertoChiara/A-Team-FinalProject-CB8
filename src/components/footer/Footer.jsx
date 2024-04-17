@@ -9,19 +9,13 @@ const Footer = () => {
   return (
     <footer className={styles.footer}>
       <div className={styles.footer_position}>
-        <div className={styles.aboutUs}>
-          <h2>About us</h2>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus
-            non consequuntur labore fugit, perspiciatis nostrum odit at
-            temporibus harum deserunt!
-          </p>
-        </div>
+        <div className={styles.aboutUs}></div>
         <div className={styles.company}>
           <h2>Company</h2>
           <div className={styles.company_btn}>
-            <button>Blog</button>
-            <button>About Us</button>
+            <Link href="/about">
+              <button>About Us</button>
+            </Link>
             <button>Download</button>
             <button>Work with Us</button>
           </div>
@@ -30,9 +24,9 @@ const Footer = () => {
         <div className={styles.partner}>
           <h2>Partner</h2>
           <div className={styles.partner_btn}>
-            <button>Sell On Gifting</button>
-            <button>Corporate Gifting</button>
-            <button>Press</button>
+            <button>Steam</button>
+            <button>Epic Games</button>
+            <button>Insta Gaming</button>
           </div>
         </div>
 
@@ -48,7 +42,7 @@ const Footer = () => {
         <div className={styles.newsletter}>
           <div className={styles.newsletterForm}>
             <h3>Newsletter</h3>
-            <p>Lorem ipsum dolor, sit amet consectetur adipisicing.</p>
+            <p>Sign up for our newsletter to get the latest news</p>
             <input type="text" id="email" placeholder="email" required />
           </div>
 

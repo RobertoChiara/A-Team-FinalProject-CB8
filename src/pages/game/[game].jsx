@@ -3,6 +3,7 @@ import Image from "next/image";
 import { httpGET } from "@/utils/http";
 import styles from "../../styles/Game.module.scss";
 import Spinner from "@/components/spinner";
+import { shimmer, toBase64 } from "@/utils/shimmer";
 import AddToWishlistButton from "@/components/AddToWishlistButton/AddToWishlistButton";
 import AddToCartButton from "../../components/AddToCartButton/AddToCartButton";
 
@@ -23,15 +24,11 @@ export const getServerSideProps = async (context) => {
 
 export default function GamePage({ game, screenshots }) {
   const [loaderImg, setLoaderImg] = useState(true);
-  const [loaderGallery, setLoaderGallery] = useState(true);
+
   const [changeImage, setChangeImage] = useState(game.background_image);
 
   const handleLoaderImg = () => {
     setLoaderImg(false);
-  };
-
-  const handleLoaderGallery = () => {
-    setLoaderGallery(false);
   };
 
   const priceInEuro = (
@@ -63,12 +60,9 @@ export default function GamePage({ game, screenshots }) {
       <div className={styles.gallery}>
         {screenshots.map((item) => (
           <div key={item.id} className={styles.gallery__img_container}>
-            {loaderGallery && <Spinner />}
             {
               <Image
-                className={`${styles.image__gallery} ${
-                  loaderGallery ? styles["hide-image__gallery"] : ""
-                } ${
+                className={`${styles.image__gallery}  ${
                   changeImage === item.image
                     ? styles.image__gallery__active
                     : ""
@@ -77,8 +71,11 @@ export default function GamePage({ game, screenshots }) {
                 alt={"image"}
                 width={250}
                 height={80}
-                onLoad={handleLoaderGallery}
-                priority={true}
+                loading="lazy"
+                placeholder="blur"
+                blurDataURL={`data:image/svg+xml;base64,${toBase64(
+                  shimmer(250, 80)
+                )}`}
                 onClick={() => setChangeImage(item.image)}
               />
             }
@@ -86,34 +83,34 @@ export default function GamePage({ game, screenshots }) {
         ))}
       </div>
 
-      <div className={styles.description1}>
-        <h1 className={styles.title}>{game.name}</h1>
-        <h4>
-          <span className={styles.text}>Price </span>
-          {priceInEuro}
+      <h1 className={styles.title}>{game.name}</h1>
+
+      <div className={styles.description_container}>
+        <h4 className={styles.price}>
+          Price: <span>{priceInEuro}</span>
         </h4>
-        <h4>
-          <span className={styles.text}>Whishlisted </span>
-          {game.suggestions_count}
+
+        <h4 className={styles.wishlisted}>
+          Wishlisted: <span>{game.suggestions_count}</span>
         </h4>
-        <h4>
-          <span className={styles.text}>Released </span>
-          {game.released}
+
+        <h4 className={styles.released}>
+          Released: <span>{game.released}</span>
         </h4>
+
         {game.metacritic && (
-          <h4>
-            <span className={styles.text}>Metacritic </span>
-            {game.metacritic}
+          <h4 className={styles.metacritic}>
+            Metacritic: <span> {game.metacritic}</span>
           </h4>
         )}
       </div>
-      <div className={styles.description2}>
-        <h3 className={styles.description3}>Description:</h3>
+      <div className={styles.description_container2}>
+        <h3 className={styles.description}>Description:</h3>
         <p> {game.description_raw}</p>
       </div>
       {game.platforms?.[0]?.platform.name === "PC" && (
-        <div className={styles.requirement}>
-          <h3 className={styles.description3}>Requirements</h3>
+        <div className={styles.requirement_container}>
+          <h3 className={styles.requirement}>Requirements</h3>
           <p className={styles.requirement}>
             {game.platforms[0].requirements.minimum}
           </p>

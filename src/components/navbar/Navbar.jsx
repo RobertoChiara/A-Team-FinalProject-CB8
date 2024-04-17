@@ -19,13 +19,6 @@ const Navbar = () => {
     }
   }, [isAuthenticated]);
 
-  const handleLogout = () => {
-    localStorage.removeItem("username");
-    localStorage.removeItem("token");
-    signout();
-    router.push("/login");
-  };
-
   const [search, setSearch] = useState("");
   const handleSearch = (e) => {
     e.preventDefault();
@@ -86,9 +79,9 @@ const Navbar = () => {
         <div className={styles.navbar_userMenu}>
           {!isAuthenticated && (
             <>
-              {/* <Link className={styles["btn-login"]} href="/login">
+              <Link className={styles["btn-login"]} href="/login">
                 Login
-              </Link> */}
+              </Link>
               <Link className={styles["btn-signup"]} href="/signup">
                 Signup
               </Link>
@@ -98,9 +91,6 @@ const Navbar = () => {
           {isAuthenticated && (
             <div className={styles.welcome_message}>
               <p>Welcome {username}!</p>
-              {/* <button className={styles["btn-logout"]} onClick={handleLogout}>
-                Logout
-              </button> */}
             </div>
           )}
           <Link

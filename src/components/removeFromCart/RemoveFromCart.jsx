@@ -55,10 +55,12 @@ const RemoveFromCartButton = ({ game, onRemove }) => {
 
   return (
     <>
-      <BsCartX onClick={handleRemoveFromCart} />
       {showModal && (
         <Modal onClose={() => setShowModal(false)}>{modalMessage}</Modal>
       )}
+      <button>
+        <BsCartX onClick={handleRemoveFromCart} />
+      </button>
     </>
   );
 };

@@ -1,48 +1,89 @@
 .checkoutContainer {
-  max-width: 400px;
-  margin: 0 auto; 
+  max-width: 550px;
+  margin: 20px auto;
   padding: 20px;
+  border-radius: 10px;
   background-color: rgba(255, 20, 147, 0.5);
-  position: fixed;
-  
+
+  .pricesContainer {
+    display: flex;
+    flex-direction: column;
+    margin: 10px;
+    gap: 5px;
+  }
+
+  .dcodeContainer {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    margin: 10px;
+    gap: 5px;
+
+    .codeBar {
+      width: 250px;
+    }
+    .button {
+      padding: 5px 10px;
+      border-radius: 5px;
+      cursor: pointer;
+      width: fit-content;
+    }
+  }
+
+  .buyButtonContainer {
+    display: flex;
+    justify-content: center;
+
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+
+    .buyButton {
+      padding: 5px 10px;
+      border-radius: 5px;
+      cursor: pointer;
+      width: fit-content;
+    }
+  }
 }
 
-.pricesContainer{
-  display: flex;
-  flex-direction: column; 
-  margin: 10px;
-  gap: 5px;
-}
+// .floatingPrice {
+//   width: 200px;
+//   height: auto;
+//   display: flex;
+//   flex-direction: column;
+//   align-items: center;
+//   padding: 15px;
+//   gap: 15px;
+//   position: fixed;
+//   background-color: rgba(255, 20, 147, 0.5);
+//   border-radius: 8px;
 
+//   @include mixins.breakpoint(mobile) {
+//     position: fixed;
+//     bottom: 70px;
+//     left: 0;
+//     width: 100%;
+//     height: 70px;
+//     background-color: rgba(255, 20, 147);
+//     gap: 5px;
+//     border-radius: 0px;
+//   }
 
-.dcodeContainer {
-  display: flex;
-  justify-content: space-between;
-  flex-direction: column; 
-  margin: 10px;
-  gap: 5px;
-}
+//   .checkoutButton {
+//     padding: 8px;
+//     background-color: deeppink;
+//     color: white;
+//     border: none;
+//     border-radius: 8px;
 
-.button {
-  padding: 5px 10px;
-  border-radius: 5px;
-  cursor: pointer;
-  width: fit-content;
+//     cursor: pointer;
+//     transition: all ease-in-out 0.2s;
+//     width: 50%;
 
-}
-
-
-.codeBar{
-  width: 250px;
-}
-
-.buyButtonContainer {
-  display: flex;
-  justify-content: center;    
- 
-  border-radius: 5px;
-  cursor: pointer;
-  width: 100%;
-
-}
-
+//     &:hover {
+//       background-color: rgba(255, 20, 147, 0.5);
+//       transform: scale(1.2);
+//     }
+//   }
+// }

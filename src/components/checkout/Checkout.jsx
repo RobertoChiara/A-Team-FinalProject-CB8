@@ -5,7 +5,7 @@ function Checkout({ allGamesInCart, onPurchase }) {
   const ids = allGamesInCart.map((game) => game.suggestions_count);
 
   const sumPrice = ids.reduce(
-    (somma, suggestions_count) => somma + suggestions_count / 20,
+    (sum, suggestions_count) => sum + suggestions_count / 20,
     0
   );
 
@@ -87,8 +87,6 @@ function Checkout({ allGamesInCart, onPurchase }) {
             >
               Apply
             </button>
-          </div>
-          <div className={styles.dcodeContainer}>
             <label htmlFor="metodo">Select you payment method</label>
             <select id="metodo" name="metodo" className={styles.codeBar}>
               <option value="">Select..</option>
@@ -101,10 +99,10 @@ function Checkout({ allGamesInCart, onPurchase }) {
           <div className={styles.buyButtonContainer}>
             <button
               type="button"
-              className={styles.button}
+              className={styles.buyButton}
               onClick={processCheckout}
             >
-              Proceed to Buy
+              Proceed to Checkout
             </button>
           </div>
         </div>

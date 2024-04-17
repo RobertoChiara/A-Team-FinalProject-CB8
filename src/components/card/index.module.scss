@@ -4,15 +4,16 @@
   background-color: none;
   display: flex;
   flex-direction: column;
-  width: 60vw;
+  width: 250px;
   height: 210px;
 
-  @include mixins.breakpoint(desktop) {
-    display: flex;
-    flex-direction: column;
+  @include mixins.breakpoint(tablet) {
+    height: 300px;
+  }
+  @include mixins.breakpoint(laptop) {
     width: 300px;
-    height: 350px;
-
+  }
+  @include mixins.breakpoint(desktop) {
     &:hover {
       border: 1px solid aqua;
     }
@@ -20,7 +21,7 @@
 
   .card-img__container {
     height: 70%;
-    @include mixins.breakpoint(desktop) {
+    @include mixins.breakpoint(tablet) {
       height: 50%;
     }
 
@@ -49,9 +50,13 @@
 
     .textCard_upper {
       h4 {
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 1;
+        overflow: hidden;
         font-size: 14px;
       }
-      @include mixins.breakpoint(desktop) {
+      @include mixins.breakpoint(laptop) {
         height: 70%;
 
         display: flex;
@@ -73,7 +78,7 @@
       .rating {
         display: none;
 
-        @include mixins.breakpoint(desktop) {
+        @include mixins.breakpoint(laptop) {
           display: flex;
           gap: 10px;
         }
@@ -96,7 +101,23 @@
 }
 
 .card-home {
-  scroll-snap-align: flex-start;
+  scroll-snap-align: start;
+
+  @include mixins.breakpoint(tablet) {
+    width: 250px;
+    height: 210px;
+    .card-img__container {
+      height: 75%;
+    }
+  }
+  @include mixins.breakpoint(laptop) {
+    width: 280px;
+    height: 300px;
+
+    .card-img__container {
+      height: 50%;
+    }
+  }
 }
 
 .card_rectangular {
@@ -104,7 +125,7 @@
   height: 250px;
   background-color: transparent;
 
-  @include mixins.breakpoint(desktop) {
+  @include mixins.breakpoint(laptop) {
     width: 610px;
     height: 500px;
   }
@@ -112,7 +133,7 @@
   .card-img__container {
     height: 80%;
 
-    @include mixins.breakpoint(desktop) {
+    @include mixins.breakpoint(laptop) {
       height: 300px;
     }
   }
@@ -121,7 +142,7 @@
     height: 20%;
     display: flex;
 
-    @include mixins.breakpoint(desktop) {
+    @include mixins.breakpoint(laptop) {
       height: 300px;
 
       p {
@@ -137,5 +158,12 @@
         overflow: hidden;
       }
     }
+  }
+}
+
+.card_store {
+  transition: 0.3s;
+  &:hover {
+    transform: scale(1.1);
   }
 }

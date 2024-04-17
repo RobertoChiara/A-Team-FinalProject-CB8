@@ -8,7 +8,7 @@ const Pagination = ({
   prev,
   next,
   page,
-  searchQuery,
+  search,
   genresQuery,
   parentPlatformsQuery,
 }) => {
@@ -21,8 +21,7 @@ const Pagination = ({
   }
 
   const searchString = "&search=";
-  const searchCondition =
-    searchQuery !== null ? searchString + searchQuery : "";
+  const searchCondition = search !== null ? searchString + search : "";
 
   return (
     <div className={styles.Pagination}>

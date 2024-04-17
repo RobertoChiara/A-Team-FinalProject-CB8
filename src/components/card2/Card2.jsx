@@ -5,22 +5,22 @@ import styles from "./index.module.scss";
 
 function Card2({
   game,
-  typeClass,
-  typeClassTitle,
-  typeClassImage,
-  typeClassP,
+  typeClass = "",
+  typeClassImage = "",
+  typeClassTitle = "",
+  typeClassP = "",
 }) {
   return (
     <div className={styles[typeClass]}>
-      <Link href={`/game/${game.slug}`}>
-        <h4 className={styles[typeClassTitle]}>{game.name}</h4>
+      <Link className={styles.linkCard} href={`/game/${game.slug}`}>
         <Image
           className={styles[typeClassImage]}
           src={game.background_image}
-          height={200}
-          width={300}
+          height={220}
+          width={480}
           alt={game.name}
         />
+        <h4 className={styles[typeClassTitle]}>{game.name}</h4>
       </Link>
       <p className={styles[typeClassP]}>
         Price:{" "}

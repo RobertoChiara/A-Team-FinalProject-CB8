@@ -1,18 +1,17 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import Card from "@/components/card";
 import { httpGET } from "@/utils/http";
+import { gamesFilter } from "@/utils/gamesFilter";
 import styles from "../../styles/Store.module.scss";
 import Filter from "../../components/filterModal/Filter";
 import Pagination from "@/components/pagination";
 
 export const getServerSideProps = async (context) => {
-  const searchQuery = context.query.search;
-  const page = context.query.page;
-  const genresQuery = context.query.genres
-    ? `&genres=${context.query.genres}`
-    : "";
-  const parentPlatformsQuery = context.query.parent_platforms
-    ? `&parent_platforms=${context.query.parent_platforms}`
+  const { search, page, genres, parent_platforms } = context.query;
+
+  const genresQuery = genres ? `&genres=${genres}` : "";
+  const parentPlatformsQuery = parent_platforms
+    ? `&parent_platforms=${parent_platforms}`
     : "";
 
   try {
@@ -22,7 +21,7 @@ export const getServerSideProps = async (context) => {
       page || 1,
       "",
       "-rating",
-      searchQuery,
+      search,
       genresQuery,
       parentPlatformsQuery
     );
@@ -31,7 +30,7 @@ export const getServerSideProps = async (context) => {
       props: {
         games: data,
         page: page || 1,
-        searchQuery: searchQuery || null,
+        search: search || null,
         genresQuery,
         parentPlatformsQuery,
       },
@@ -46,7 +45,7 @@ export const getServerSideProps = async (context) => {
 export default function Store({
   games,
   page,
-  searchQuery,
+  search,
   genresQuery,
   parentPlatformsQuery,
 }) {
@@ -58,6 +57,8 @@ export default function Store({
     setIsBlurred(!isBlurred);
   };
 
+  const gamesFiltered = gamesFilter(games);
+
   return (
     <div className={styles.store}>
       {showFilter && <Filter onClose={toggleFilter}></Filter>}
@@ -68,8 +69,8 @@ export default function Store({
           </button>
         </div>
         <div className={styles.cardContainer}>
-          {games.results?.map((game) => (
-            <Card key={game.id} game={game} />
+          {gamesFiltered.map((game) => (
+            <Card key={game.id} game={game} typeClass="card_store" />
           ))}
         </div>
         <Pagination
@@ -77,7 +78,7 @@ export default function Store({
           prev={games.previous}
           next={games.next}
           page={page}
-          searchQuery={searchQuery}
+          search={search}
           genresQuery={genresQuery}
           parentPlatformsQuery={parentPlatformsQuery}
         />

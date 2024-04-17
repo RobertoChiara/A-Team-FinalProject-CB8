@@ -34,7 +34,7 @@ const Filter = ({ onClose, title }) => {
   }, []);
 
   const handleCloseClick = (e) => {
-    e.preventDefault();
+    e.stopPropagation();
     onClose();
   };
 
@@ -58,6 +58,7 @@ const Filter = ({ onClose, title }) => {
               href={`/store?parent_platforms=${option.id}`}
               id={option.id}
               key={index}
+              onClick={handleCloseClick}
             >
               {option.name}
             </Link>
@@ -84,6 +85,7 @@ const Filter = ({ onClose, title }) => {
               href={`/store?genres=${option.slug}`}
               id={option.slug}
               key={index}
+              onClick={handleCloseClick}
             >
               {option.name}
             </Link>
@@ -98,13 +100,9 @@ const Filter = ({ onClose, title }) => {
       <div className={styles.filter_wrapper} ref={filterRef}>
         <div className={styles.filter}>
           <div className={styles.filter_header}>
-            <a
-              className={styles.close_button}
-              href="#"
-              onClick={handleCloseClick}
-            >
-              <CgCloseO />
-            </a>
+            <div className={styles.close_button}>
+              <CgCloseO onClick={handleCloseClick} />
+            </div>
           </div>
           {title && <h1>{title}</h1>}
           <div className={styles.filter_body}>

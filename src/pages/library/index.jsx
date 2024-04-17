@@ -23,7 +23,7 @@ function Library() {
 
   return (
     <div>
-      <h2>List of your own games</h2>
+      <h2 className={styles.lib__title}>List of your own games</h2>
       <div className={styles.main__Container}>
         {library && library.length > 0 ? (
           library.map((game) => {
@@ -31,10 +31,10 @@ function Library() {
               <Card2
                 game={game}
                 key={game.slug}
-                typeClass="main__Card"
-                typeClassTitle="main__CardTitle"
-                typeClassImage="main__CardImage"
-                typeClassP="main__CardP"
+                typeClass="lib__Card"
+                typeClassTitle="lib__CardTitle"
+                typeClassImage="lib__CardImage"
+                typeClassP="lib__CardP"
               />
             );
           })

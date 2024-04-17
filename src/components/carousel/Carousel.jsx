@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { sortData } from "@/utils/sortData";
-import { ImPacman } from "react-icons/im";
+import { TbPacman } from "react-icons/tb";
+import { BiSolidGhost } from "react-icons/bi";
 import Spinner from "../spinner";
 import Image from "next/image";
 import Link from "next/link";
@@ -36,52 +37,55 @@ const Carousel = ({ data }) => {
   }
 
   return (
-    <div className={styles.carousel_container}>
-      <section className={styles.Carousel}>
-        <Link
-          key={sortedData?.[handleIndex].id}
-          href={`/game/${sortedData?.[handleIndex].slug}`}
-          className={styles.link_cover}
-        >
-          <div className={styles.gradient}></div>
-          {loaderHero && <Spinner />}
-          {sortedData?.[handleIndex]?.background_image && (
-            <Image
-              className={`${styles.cover} ${
-                loaderHero ? styles["hide-cover"] : ""
-              }`}
-              src={sortedData?.[handleIndex]?.background_image}
-              alt={sortedData?.[handleIndex]?.name}
-              width={800}
-              height={800}
-              quality={100}
-              priority={true}
-              onLoad={handleCover}
-            />
-          )}
-          <h3 className={styles.title}>{sortedData?.[handleIndex]?.name}</h3>
-        </Link>
-        {/* <div className={styles.addIcon}>
+    <>
+      <div className={styles.carousel_container}>
+        <section className={styles.Carousel}>
+          <Link
+            key={sortedData?.[handleIndex].id}
+            href={`/game/${sortedData?.[handleIndex].slug}`}
+            className={styles.link_cover}
+          >
+            <div className={styles.gradient}></div>
+            {loaderHero && <Spinner />}
+            {sortedData?.[handleIndex]?.background_image && (
+              <Image
+                className={`${styles.cover} ${
+                  loaderHero ? styles["hide-cover"] : ""
+                }`}
+                src={sortedData?.[handleIndex]?.background_image}
+                alt={sortedData?.[handleIndex]?.name}
+                width={800}
+                height={800}
+                quality={100}
+                priority={true}
+                onLoad={handleCover}
+              />
+            )}
+            <h3 className={styles.title}>{sortedData?.[handleIndex]?.name}</h3>
+          </Link>
+          {/* <div className={styles.addIcon}>
           <AddToCartButton game={sortedData[handleIndex]} />
           <AddToWishlistButton game={sortedData[handleIndex]} />
         </div> */}
-      </section>
+        </section>
+      </div>
       <ul className={styles.bullets}>
         {data?.map((_, idx) => (
           <li
             key={idx}
-            className={`${styles.bullet} ${
-              idx === handleIndex ? styles["bullet-active"] : ""
-            }`}
+            className={styles.bullet}
             onClick={() => setHandleIndex(idx)}
           >
-            {idx === handleIndex && (
-              <ImPacman className={styles["bullet-pacman"]} />
+            {" "}
+            {idx === handleIndex ? (
+              <TbPacman className={styles["bullet-pacman"]} />
+            ) : (
+              <BiSolidGhost className={styles.ghost} />
             )}
           </li>
         ))}
       </ul>
-    </div>
+    </>
   );
 };
 
