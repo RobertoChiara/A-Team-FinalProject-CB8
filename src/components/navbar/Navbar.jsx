@@ -6,11 +6,13 @@ import { FaUserCircle } from "react-icons/fa";
 import menuLinks from "../../mocks/menuLinks";
 import { useRouter } from "next/router";
 import { AuthContext } from "../../pages/api/authContext";
+import { avatars } from "../../mocks/avatar";
 
 const Navbar = () => {
   const router = useRouter();
-  const { isAuthenticated, signout } = useContext(AuthContext);
+  const { isAuthenticated } = useContext(AuthContext);
   const [username, setUsername] = useState("");
+  const [avatar, setAvatar] = useState("");
 
   useEffect(() => {
     const storedUsername = localStorage.getItem("username");
@@ -18,6 +20,13 @@ const Navbar = () => {
       setUsername(storedUsername);
     }
   }, [isAuthenticated]);
+
+  useEffect(() => {
+    const storedAvatar = localStorage.getItem("avatar");
+    if (storedAvatar) {
+      setAvatar(storedAvatar);
+    }
+  }, [isAuthenticated, router.pathname]);
 
   const [search, setSearch] = useState("");
   const handleSearch = (e) => {
@@ -90,7 +99,7 @@ const Navbar = () => {
 
           {isAuthenticated && (
             <div className={styles.welcome_message}>
-              <p>Welcome {username}!</p>
+              <p>{username}</p>
             </div>
           )}
           <Link
@@ -106,7 +115,17 @@ const Navbar = () => {
                 : "/user"
             }
           >
-            <FaUserCircle />
+            {avatar ? (
+              <Image
+                src={avatars.find((item) => item.id === parseInt(avatar)).image}
+                alt="User Avatar"
+                width={32}
+                height={32}
+                className={styles.userAvatar}
+              />
+            ) : (
+              <FaUserCircle />
+            )}
           </Link>
         </div>
       </div>

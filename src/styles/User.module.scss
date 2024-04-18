@@ -1,19 +1,13 @@
 @use "../assets/mixins";
 .user_page {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  height: 90vh;
+  @include mixins.flex(column, center, center);
+  min-height: calc(90vh - 49px);
 
   .user__Container {
-    position: relative;
-    top: -35px;
     border: 1px solid aqua;
-    padding: 10px;
+    padding-block: 20px;
+    padding-inline: 10px;
     @include mixins.flex(column, center, center);
-    height: 75vh;
-    width: 90vw;
     box-shadow: 0 0 10px aqua;
     border-radius: 10px;
     background: linear-gradient(
@@ -22,18 +16,9 @@
       #000000,
       rgba(0, 255, 255, 0.062)
     );
-    @include mixins.breakpoint(tablet) {
-      width: 70vw;
-      height: 70vh;
-    }
-    @include mixins.breakpoint(laptop) {
-      top: 0;
-      height: 80vh;
-      width: 50vw;
-    }
+
     @include mixins.breakpoint(desktop) {
-      width: 30vw;
-      height: 80vh;
+      width: 50vw;
     }
 
     .user__Image {

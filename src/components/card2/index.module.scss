@@ -1,23 +1,30 @@
 @use "../../assets/mixins";
-.linkCard {
-  @include mixins.flex(column, flex-start, flex-start);
-}
 
+.pref__Card,
 .lib__Card {
-  @include mixins.flex(row, flex-start, center);
+  @include mixins.flex(wrap, center, center);
   padding: 15px;
-  border-bottom: 1px solid #ffffff;
 
+  .pref__CardTitle,
   .lib__CardTitle {
     color: #ffffff;
-    margin-top: 10px;
+    margin-top: 20px;
   }
 
-  .lib_CardImage {
-    height: auto;
+  .pref__CardImage,
+  .lib__CardImage {
+    height: 180px;
     width: 480px;
+
+    @include mixins.breakpoint(tablet) {
+      width: 330px;
+    }
+    @include mixins.breakpoint(laptop) {
+      width: 300px;
+    }
   }
 
+  .pref__CardP,
   .lib__CardP {
     display: none;
   }

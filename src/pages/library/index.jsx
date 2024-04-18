@@ -22,20 +22,16 @@ function Library() {
   }, []);
 
   return (
-    <div>
+    <div className={styles.lib_page}>
       <h2 className={styles.lib__title}>List of your own games</h2>
-      <div className={styles.main__Container}>
+      <div className={styles.lib__CardsContainer}>
         {library && library.length > 0 ? (
           library.map((game) => {
             return (
-              <Card2
-                game={game}
-                key={game.slug}
-                typeClass="lib__Card"
-                typeClassTitle="lib__CardTitle"
-                typeClassImage="lib__CardImage"
-                typeClassP="lib__CardP"
-              />
+              <div className={styles.lib__CardContainer} key={game.slug}>
+                {" "}
+                <Card2 game={game} typeClass="lib" />{" "}
+              </div>
             );
           })
         ) : (

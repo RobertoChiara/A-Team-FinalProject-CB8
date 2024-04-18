@@ -13,11 +13,6 @@
   @include mixins.breakpoint(laptop) {
     width: 300px;
   }
-  @include mixins.breakpoint(desktop) {
-    &:hover {
-      border: 1px solid aqua;
-    }
-  }
 
   .card-img__container {
     height: 70%;
@@ -159,6 +154,7 @@
   @include mixins.breakpoint(laptop) {
     width: 300px;
     &:hover {
+      border: 1px solid aqua;
       transform: scale(1.1);
     }
   }
@@ -178,7 +174,7 @@
         height: 180px;
       }
       @include mixins.breakpoint(laptop) {
-        width: 300px;
+        width: 298px;
       }
     }
   }

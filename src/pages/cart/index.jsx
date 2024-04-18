@@ -72,12 +72,7 @@ function Cart() {
           cart.map((game) => {
             return (
               <div key={game.slug} className={styles.card}>
-                <Card2
-                  typeClass="cart__Card"
-                  typeClassTitle="cart__CardTitle"
-                  typeClassImage="cart__CardImage"
-                  game={game}
-                />
+                <Card2 typeClass="cart" game={game} />
                 <RemoveFromCartButton game={game} onRemove={removeFromCart} />
               </div>
             );

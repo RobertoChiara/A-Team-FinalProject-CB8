@@ -1,12 +1,32 @@
 @use "../assets/mixins";
-.lib__title {
-  text-align: center;
-  color: #02ffff;
-  font-size: 20px;
-  font-weight: bold;
-  margin-bottom: 10px;
-  text-shadow: 0 0 30px #00eaff95;
-}
-.main__Container {
-  @include mixins.flex(column, center, center, 20px);
+.lib_page {
+  min-height: calc(100vh - 340px);
+
+  display: flex;
+  flex-direction: column;
+  .lib__title {
+    font-family: "VT323", monospace;
+    text-align: center;
+    color: #02ffff;
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    text-shadow: 0 0 30px #00eaff95;
+
+    @include mixins.breakpoint(tablet) {
+      font-size: 28px;
+    }
+  }
+  .lib__CardsContainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    .lib__CardContainer {
+      @include mixins.flex(column, center, center);
+      transition: 0.3s;
+      &:hover {
+        transform: scale(1.1);
+      }
+    }
+  }
 }

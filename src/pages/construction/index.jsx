@@ -13,7 +13,7 @@ export default function Construction() {
         width={1000}
         height={600}
       />
-      <h1 className={styles.cons__Title}>Under Construction</h1>
+      <h1 className={styles.cons__Title}>Under Construction...</h1>
       <p className={styles.cons__Message}>
         We are working hard to finish the development of this site. Sign up for
         updates using the link below!

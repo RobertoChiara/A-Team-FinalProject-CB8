@@ -11,7 +11,8 @@ export default function NotFound() {
           src="/images/error_img.png"
           alt="img_404"
           height={400}
-          width={400}
+          width={800}
+          quality={100}
           loading="lazy"
         />
       </div>

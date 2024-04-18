@@ -35,6 +35,7 @@ const Index = () => {
       if (res.ok) {
         const data = await res.json();
         setUser(data.user);
+        localStorage.setItem("avatar", data.user.avatar);
       } else {
         throw new Error(`Error: ${res.status}`);
       }
@@ -68,7 +69,8 @@ const Index = () => {
   const logout = () => {
     localStorage.removeItem("username");
     localStorage.removeItem("token");
-    router.push("/login");
+    localStorage.removeItem("avatar");
+    router.push("/");
   };
 
   if (user) {

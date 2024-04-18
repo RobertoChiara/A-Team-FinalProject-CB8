@@ -1,15 +1,10 @@
 import React from "react";
 import styles from "./index.module.scss";
 
-const Modal = ({ children, onClose }) => {
+const Modal = ({ children }) => {
   return (
     <div className={styles.modal}>
-      <div className={styles.modalContent}>
-        {children}
-        <button onClick={onClose} className={styles.closeButton}>
-          Close
-        </button>
-      </div>
+      <div className={styles.modalContent}>{children}</div>
     </div>
   );
 };

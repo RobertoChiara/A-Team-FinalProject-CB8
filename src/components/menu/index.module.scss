@@ -48,17 +48,18 @@
           z-index: 999;
         }
         .icon_active {
-          transform: translateY(-32px);
+          transform: translateY(-30px);
 
           text-shadow: 1px 1px 4px aqua;
         }
 
         .text {
+          font-family: "VT323", monospace;
           position: absolute;
           color: #fff;
           font-weight: 600;
-          font-size: 0.9em;
-          letter-spacing: 0.05em;
+          font-size: 1.1rem;
+          letter-spacing: 0.08em;
           opacity: 0;
           transform: translateY(20px);
           transition: 0.5s;

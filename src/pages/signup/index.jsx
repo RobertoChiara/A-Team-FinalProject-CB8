@@ -1,12 +1,17 @@
 import React, { useState } from "react";
 import styles from "../../styles/Signup.module.scss";
+import { avatars } from "../../mocks/avatar";
+import Image from "next/image";
+import { useRouter } from "next/router";
 
 export default function SignUp() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
+  const [avatar, setAvatar] = useState("");
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [modalMessage, setModalMessage] = useState("");
+  const router = useRouter();
 
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -21,7 +26,7 @@ export default function SignUp() {
       return;
     }
 
-    const body = { username: username, password: password };
+    const body = { username: username, password: password, avatar: avatar };
 
     try {
       const response = await fetch("/api/register", {
@@ -34,9 +39,9 @@ export default function SignUp() {
 
       if (response.ok) {
         const data = await response.json();
-        console.log("Registration successful:", data.user);
         setModalMessage("Registration successful");
         setIsModalOpen(true);
+        router.push("/");
       } else {
         const errorData = await response.json();
         console.error("Registration failed:", errorData.message);
@@ -78,6 +83,29 @@ export default function SignUp() {
           value={confirmPassword}
           onChange={(e) => setConfirmPassword(e.target.value)}
         />
+        <input
+          className={styles.signup__input}
+          type="hidden"
+          name="avatar"
+          placeholder="Avatar"
+          value={avatar}
+          onChange={(e) => setAvatar(e.target.value)}
+        />
+        <p className={styles.avatarP}>select your avatar</p>
+        <div className={styles.avatarGrid}>
+          {avatars.map((avatarObj) => (
+            <div key={avatarObj.id} onClick={() => setAvatar(avatarObj.id)}>
+              <Image
+                src={avatarObj.image}
+                alt={`Avatar ${avatarObj.name}`}
+                className={avatar === avatarObj.id ? `${styles.selected}` : ""}
+                width={100}
+                height={100}
+              />
+            </div>
+          ))}
+        </div>
+        <input type="hidden" name="avatar" value={avatar} />
         <button type="submit" className={styles.signup__btn}>
           Sign Up
         </button>

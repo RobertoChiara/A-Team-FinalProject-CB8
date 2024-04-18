@@ -1,15 +1,23 @@
 .cart_btn {
+  width: 50px;
+  height: 30px;
   padding: 8px;
-  background-color: deeppink;
-  color: white;
-  border: none;
+  display: flex;
+
+  justify-content: center;
+  align-items: center;
+  background: none;
+  border: 1px solid aqua;
+  color: aqua;
+  font-size: 18px;
+
   border-radius: 8px;
-  box-shadow: 0 0 5px 5px rgb(85, 0, 255);
+  box-shadow: 0 0 10px aqua;
   cursor: pointer;
   transition: all ease-in-out 0.2s;
 
   &:hover {
-    background-color: darkmagenta;
+    background-color: deeppink;
     transform: scale(1.2);
   }
 }

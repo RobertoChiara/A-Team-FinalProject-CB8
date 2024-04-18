@@ -1,17 +1,39 @@
 @use "../assets/mixins";
-.wish__Title {
-  text-align: center;
-  color: #02ffff;
-  font-size: 20px;
-  font-weight: bold;
-  margin-bottom: 10px;
-  text-shadow: 0 0 30px #00eaff95;
-}
-.wish__Container {
-  @include mixins.flex(column, center, center);
 
-  .buttonContainer {
-    @include mixins.flex(row, flex-start, center, 20px);
-    padding: 8px;
+.wish_page {
+  min-height: calc(100vh - 340px);
+
+  display: flex;
+  flex-direction: column;
+  .wish__Title {
+    font-family: "VT323", monospace;
+    text-align: center;
+    color: #02ffff;
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    text-shadow: 0 0 30px #00eaff95;
+    @include mixins.breakpoint(tablet) {
+      font-size: 28px;
+    }
+  }
+  .wish__CardsContainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    .wish__CardContainer {
+      @include mixins.flex(column, center, center);
+      transition: 0.3s;
+      &:hover {
+        transform: scale(1.1);
+      }
+      .buttonContainer {
+        position: relative;
+        top: -50px;
+        right: -90px;
+        @include mixins.flex(row, flex-start, center, 10px);
+        padding: 8px;
+      }
+    }
   }
 }

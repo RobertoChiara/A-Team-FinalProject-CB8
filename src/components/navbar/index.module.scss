@@ -1,6 +1,7 @@
 @use "../../assets/mixins";
 
 .Navbar {
+  font-family: "VT323", monospace;
   @include mixins.position(fixed, 0);
   z-index: 999;
   width: 100%;
@@ -19,6 +20,7 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
+      gap: 10px;
       height: 100%;
 
       @include mixins.breakpoint(desktop) {
@@ -47,7 +49,7 @@
 
           .icon-btn {
             @include mixins.flex(column, flex-start, center);
-            font-size: 16px;
+            font-size: 20px;
             transition: transform 0.3s ease;
             cursor: pointer;
 
@@ -64,10 +66,13 @@
     }
     .search_container {
       display: flex;
+      @include mixins.breakpoint(desktop) {
+        width: 33vw;
+      }
 
       .searchBar {
         @include mixins.flex(row, center, center);
-        width: 100%;
+        min-width: 100%;
         border: none;
         font-weight: bold;
         color: aqua;
@@ -86,14 +91,17 @@
       justify-content: flex-end;
       align-items: center;
       gap: 10px;
-      @include mixins.breakpoint(laptop) {
-        // width: 33vw;
-      }
 
       .welcome_message {
+        height: 100%;
         display: flex;
+        align-items: center;
+
         gap: 10px;
         p {
+          text-transform: capitalize;
+          font-size: 20px;
+
           text-align: center;
           font-weight: bold;
           color: aqua;
@@ -104,16 +112,28 @@
         font-size: 15px;
       }
       .btn-signup {
-        font-size: 15px;
+        font-size: 20px;
       }
       .icon-user {
         color: white;
-        font-size: 34px;
+        font-size: 20px;
       }
       .authenticated-icon-user {
         color: aqua;
         font-size: 34px;
         text-shadow: 1px 1px 1px rgb(255, 0, 234);
+      }
+      .userAvatar {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        cursor: pointer;
+        transition: transform 0.3s ease, border 0.3s ease;
+
+        &:hover {
+          transform: scale(1.1);
+          border: 2px solid white;
+        }
       }
     }
   }

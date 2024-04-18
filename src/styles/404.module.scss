@@ -6,33 +6,41 @@
   @include mixins.flex(column, center, center, 20px);
 
   @include mixins.breakpoint(laptop) {
-    min-height: calc(100vh - 49px);
+    min-height: calc(100vh - 121px);
     @include mixins.flex(column, center, center, 30px);
   }
 
   .page_404__img {
-    object-fit: cover;
     width: 100%;
     height: auto;
 
     @include mixins.breakpoint(laptop) {
-      width: 600px;
+      width: 100%;
     }
   }
 
-  &__btn {
-    background-color: var(--main-color);
-    color: white;
-    font-family: inherit;
-    border: none;
-    padding: 10px 20px;
-    font-size: 16px;
+  .page_404__btn {
+    background: none;
+    color: #ea5bf7;
+    font-family: "VT323", monospace;
+    letter-spacing: 4px;
+    border: 1px solid aqua;
+    box-shadow: 0 0 10px aqua;
+    padding: 10px 15px;
+    font-size: 20px;
+    text-shadow: 0 0 10px #ea5bf7;
     border-radius: 7px;
-    cursor: pointer;
+
+    &:hover {
+      cursor: pointer;
+      border: 1px solid #ea5bf7;
+      box-shadow: 0 0 10px #ea5bf7;
+      color: aqua;
+    }
 
     @include mixins.breakpoint(laptop) {
       padding: 15px 30px;
-      font-size: 24px;
+      font-size: 30px;
     }
   }
 }

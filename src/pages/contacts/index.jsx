@@ -36,10 +36,10 @@ const Contact = () => {
   };
 
   return (
-    <section className={styles.contact}>
-      <div className={styles.container}>
-        <h2>Contact us</h2>
-        <form onSubmit={handleSubmit}>
+    <div className={styles.contact_container}>
+      <div className={styles.contact}>
+        <h2 className={styles.title}>Contact us</h2>
+        <form onSubmit={handleSubmit} className={styles.form}>
           <div className={styles.inputGroup}>
             <label htmlFor="name">Name:</label>
             <input
@@ -91,7 +91,7 @@ const Contact = () => {
           </button>
         </form>
       </div>
-    </section>
+    </div>
   );
 };
 export default Contact;

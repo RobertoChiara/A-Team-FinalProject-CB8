@@ -77,21 +77,9 @@ const AddToCartButton = ({ game, onRemoveFromWishlist }) => {
 
   return (
     <>
-      {showModalNoUsername && (
-        <Modal onClose={() => setshowModalNoUsername(false)}>
-          Only logged user can add to cart
-        </Modal>
-      )}
-      {showModalAddtoCart && (
-        <Modal onClose={() => setshowModalAddtoCart(false)}>
-          Game Added to Cart!
-        </Modal>
-      )}
-      {showModalAlreadyInCart && (
-        <Modal onClose={() => setshowModalAlreadyInCart(false)}>
-          Game Already in Cart.
-        </Modal>
-      )}
+      {showModalNoUsername && <Modal>Only logged user can add to cart</Modal>}
+      {showModalAddtoCart && <Modal>Game Added to Cart!</Modal>}
+      {showModalAlreadyInCart && <Modal>Game Already in Cart.</Modal>}
       <button className={styles.button}>
         <FaCartPlus onClick={handleAddToCart} />
       </button>

@@ -33,6 +33,32 @@
     box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
   }
 
+  .avatarGrid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    width: 180px;
+    height: 180px;
+
+    img {
+      width: 100%;
+      height: auto;
+      border-radius: 50%;
+      cursor: pointer;
+      transition: transform 0.3s ease, border 0.3s ease;
+
+      &.selected {
+        transform: scale(1.1);
+        border: 2px solid white;
+      }
+
+      &:hover {
+        transform: scale(1.1);
+        border: 2px solid white;
+      }
+    }
+  }
+
   .signup__btn {
     padding: 0.5rem;
     margin-top: 1.5rem;

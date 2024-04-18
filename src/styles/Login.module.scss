@@ -1,47 +1,107 @@
-.login__container {
+@use "../assets/mixins";
+
+.login_page {
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
-  height: 75vh;
-  gap: 1.1rem;
-  border: 2px solid azure;
-  border-radius: 10px;
-  background: rgb(63, 94, 251);
-  background: linear-gradient(
-    90deg,
-    rgba(252, 70, 107, 1) 0%,
-    rgba(63, 94, 251, 1) 100%
-  );
+  justify-content: center;
+  min-height: calc(80vh - 49px);
 
-  .login__title {
-    font-size: 3rem;
-    font-weight: 600;
+  @include mixins.breakpoint(tablet) {
+    min-height: calc(100vh - 49px);
   }
 
-  .login__form {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
+  @include mixins.breakpoint(laptop) {
+    min-height: calc(85vh - 49px);
   }
 
-  .login__input {
-    padding: 0.5rem;
-    border-radius: 5px;
-    border: none;
-    outline: none;
-    box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
-  }
+  .login__container {
+    @include mixins.flex(column, center, center);
+    border: 1px solid aqua;
+    padding: 10px;
+    width: 90vw;
+    box-shadow: 0 0 10px aqua;
+    border-radius: 10px;
+    gap: 20px;
+    background: linear-gradient(
+      90deg,
+      rgba(0, 255, 255, 0.062),
+      #000000,
+      rgba(0, 255, 255, 0.062)
+    );
 
-  .login__btn {
-    padding: 0.5rem;
-    margin-top: 1.5rem;
-    border-radius: 5px;
-    border: none;
-    outline: none;
-    background-color: #ff2a6d;
-    color: #ffffff;
-    box-shadow: 0 0 50px 15px #48abe0;
-    cursor: pointer;
+    @include mixins.breakpoint(tablet) {
+      width: 85vw;
+    }
+
+    @include mixins.breakpoint(laptop) {
+      margin-top: 40px;
+      height: 80vh;
+      width: 50vw;
+    }
+
+    .title {
+      font-family: "Orbitron", sans-serif;
+      letter-spacing: 10px;
+      font-size: 18px;
+      text-shadow: 0px 0px 10px #ec2593;
+
+      @include mixins.breakpoint(tablet) {
+        font-size: 30px;
+      }
+    }
+    .logo_login {
+      display: flex;
+      width: 100px;
+      height: 100px;
+      filter: drop-shadow(0px 0px 5px #ec2593);
+
+      @include mixins.breakpoint(tablet) {
+        width: 150px;
+        height: 150px;
+      }
+    }
+
+    // .login__title {
+    //   text-shadow: 0px 0px 10px aqua;
+
+    //   @include mixins.breakpoint(tablet) {
+    //     font-size: 30px;
+    //   }
+    // }
+
+    .login__form {
+      margin-top: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .login__input {
+      font-family: "VT323", monospace;
+      padding: 0.5rem;
+      border-radius: 5px;
+      border: 1px solid aqua;
+      border-radius: 8px;
+      box-shadow: 0 0 10px aqua;
+      outline: none;
+      background-color: #19191d;
+      color: aqua;
+    }
+
+    .login__btn {
+      padding: 0.5rem;
+      margin-top: 1.5rem;
+      border-radius: 5px;
+      border: 1px solid #ec2593;
+      background-color: transparent;
+      box-shadow: 0 0 10px #ec2593;
+
+      color: #ffff;
+      text-shadow: 0 0 10px #ec2593;
+
+      cursor: pointer;
+    }
   }
 }

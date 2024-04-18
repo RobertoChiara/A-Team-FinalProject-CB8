@@ -48,37 +48,29 @@ function Wishlist() {
   };
 
   return (
-    <div>
+    <div className={styles.wish_page}>
       <h2 className={styles.wish__Title}>List of your wishlisted games</h2>
-      {wishlist && wishlist.length > 0 ? (
-        wishlist.map((game) => {
-          return (
-            <div key={game.slug} className={styles.wish__Container}>
-              <Card2
-                game={game}
-                key={game.slug}
-                typeClass="wish__Card"
-                typeClassTitle="wish__CardTitle"
-                typeClassImage="wish__CardImage"
-                typeClassP="wish__CardP"
-              />
-              <div className={styles.buttonContainer}>
-                <RemoveFromWishlistButton
-                  game={game}
-                  onRemove={removeFromWishlist}
-                />
-                <AddToCartButton
-                  game={game}
-                  onRemoveFromWishlist={removeFromWishlist}
-                />{" "}
-                {/* Here */}
+      <div className={styles.wish__CardsContainer}>
+        {wishlist && wishlist.length > 0 ? (
+          wishlist.map((game) => {
+            return (
+              <div key={game.slug} className={styles.wish__CardContainer}>
+                <Card2 game={game} key={game.slug} typeClass="pref" />
+
+                <div className={styles.buttonContainer}>
+                  <RemoveFromWishlistButton
+                    game={game}
+                    onRemove={removeFromWishlist}
+                  />
+                  <AddToCartButton game={game} onRemove={removeFromWishlist} />
+                </div>
               </div>
-            </div>
-          );
-        })
-      ) : (
-        <p>No games in wishlist.</p>
-      )}
+            );
+          })
+        ) : (
+          <p>No games in wishlist.</p>
+        )}
+      </div>
     </div>
   );
 }

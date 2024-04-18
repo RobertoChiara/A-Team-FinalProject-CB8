@@ -2,34 +2,56 @@
 
 .cons__Container {
   @include mixins.flex(column, center, center, 40px);
-  height: 100vh;
+  font-family: "VT323", monospace;
+  height: calc(100vh - 160px);
   text-align: center;
   padding: 30px;
+  @include mixins.breakpoint(tablet) {
+    height: calc(100vh - 120px);
+  }
 
   .cons__Image {
-    width: 1000px;
+    margin-top: 40px;
+    border: 1px solid #ffa601;
+    border-radius: 10px;
+    box-shadow: 0 0 10px #ffe601;
+    width: 100%;
     height: auto;
-    margin-bottom: 40px;
   }
 
   .cons__Title {
     font-size: 2.5rem;
     margin-bottom: 20px;
+    text-shadow: 0 0 10px #ffe601;
+    @include mixins.breakpoint(tablet) {
+      font-size: 3rem;
+    }
   }
 
   .cons__Message {
+    color: #ffa601;
     font-size: 1.2rem;
-    margin-bottom: 40px;
+    @include mixins.breakpoint(tablet) {
+      font-size: 1.5rem;
+    }
   }
 
   .cons__Button {
     padding: 10px 20px;
     font-size: 1rem;
-    background-color: #007bff;
+    background: none;
     color: white;
-    border: none;
+    text-shadow: 0 0 10px #ffe601;
+    border: 1px solid #ffa601;
+    box-shadow: 0 0 10px #ffe601;
     border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s;
+    &:hover {
+      cursor: pointer;
+      color: #ffe601;
+      background-color: #ffa6012f;
+    }
+    @include mixins.breakpoint(tablet) {
+      font-size: 1.5rem;
+    }
   }
 }
