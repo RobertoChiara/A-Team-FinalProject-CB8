@@ -1,103 +1,128 @@
 @use "../../assets/mixins";
 
 .checkoutContainer {
+  @include mixins.flex(column, center, center, 30px);
   max-width: 550px;
   margin: 20px auto;
   padding: 20px;
   border-radius: 10px;
-  background-color: rgba(255, 20, 147, 0.5);
+  border: 1px solid deeppink;
+  box-shadow: 0px 1px 10px #ec2593;
+  background-color: transparent;
 
   @include mixins.breakpoint(desktop) {
     max-width: 400px;
-
     padding: 20px;
-    background-color: rgba(255, 20, 147, 0.5);
     position: fixed;
     top: 100px;
-    left: 10px;
+    right: 5%;
     padding: 20px;
     border-radius: 10px;
   }
 
+  h4 {
+    font-family: "VT323", monospace;
+    font-size: 26px;
+    color: aqua;
+    border-bottom: 1px solid aqua;
+  }
+
   .pricesContainer {
-    display: flex;
-    flex-direction: column;
-    margin: 10px;
-    gap: 5px;
+    @include mixins.flex(column, center, flex-end, 15px);
+    color: rgb(255, 255, 255);
   }
 
   .dcodeContainer {
-    display: flex;
-    justify-content: space-between;
-    flex-direction: column;
-    margin: 10px;
-    gap: 5px;
+    @include mixins.flex(column, center, center, 15px);
 
     .codeBar {
-      width: 250px;
+      @include mixins.flex(row, center, center);
+      height: 30px;
+      width: 100%;
+      background: none;
+      border: 1px solid aqua;
+      color: aqua;
+      font-size: 18px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px aqua;
+      cursor: pointer;
+      transition: all ease-in-out 0.2s;
+
+      &::placeholder {
+        font-size: 14px;
+        padding-left: 8px;
+        color: rgb(175, 175, 175);
+      }
     }
     .button {
-      padding: 5px 10px;
-      border-radius: 5px;
+      margin-top: 15px;
+      width: 50px;
+      height: 30px;
+      padding: 20px 50px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: none;
+      border: 1px solid aqua;
+      color: aqua;
+      font-size: 18px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px aqua;
       cursor: pointer;
-      width: fit-content;
+      transition: all ease-in-out 0.2s;
+
+      &:hover {
+        transform: scale(1.2);
+      }
+    }
+  }
+
+  .paySelect {
+    @include mixins.flex(row, center, center);
+    height: 30px;
+    width: 100%;
+    background: none;
+    border: 1px solid aqua;
+    color: aqua;
+    font-size: 18px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px aqua;
+    cursor: pointer;
+    transition: all ease-in-out 0.2s;
+
+    .payMethod {
+      background: #293133;
+      font-size: 14px;
+      color: whitesmoke;
+
+      &:hover {
+        background-color: aqua;
+        color: black;
+      }
     }
   }
 
   .buyButtonContainer {
-    display: flex;
-    justify-content: center;
-
-    border-radius: 5px;
-    cursor: pointer;
-    width: 100%;
+    @include mixins.flex(row, center, center, 40px);
+    margin-top: 30px;
 
     .buyButton {
-      padding: 5px 10px;
-      border-radius: 5px;
+      width: 50px;
+      height: 30px;
+      padding: 20px 40px;
+      @include mixins.flex(row, center, center);
+      background: none;
+      border: 1px solid aqua;
+      color: aqua;
+      font-size: 18px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px aqua;
       cursor: pointer;
-      width: fit-content;
+      transition: all ease-in-out 0.2s;
+
+      &:hover {
+        transform: scale(1.2);
+      }
     }
   }
 }
-
-// .floatingPrice {
-//   width: 200px;
-//   height: auto;
-//   display: flex;
-//   flex-direction: column;
-//   align-items: center;
-//   padding: 15px;
-//   gap: 15px;
-//   position: fixed;
-//   background-color: rgba(255, 20, 147, 0.5);
-//   border-radius: 8px;
-
-//   @include mixins.breakpoint(mobile) {
-//     position: fixed;
-//     bottom: 70px;
-//     left: 0;
-//     width: 100%;
-//     height: 70px;
-//     background-color: rgba(255, 20, 147);
-//     gap: 5px;
-//     border-radius: 0px;
-//   }
-
-//   .checkoutButton {
-//     padding: 8px;
-//     background-color: deeppink;
-//     color: white;
-//     border: none;
-//     border-radius: 8px;
-
-//     cursor: pointer;
-//     transition: all ease-in-out 0.2s;
-//     width: 50%;
-
-//     &:hover {
-//       background-color: rgba(255, 20, 147, 0.5);
-//       transform: scale(1.2);
-//     }
-//   }
-// }

@@ -2,6 +2,7 @@ import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 import styles from "./index.module.scss";
+import { shimmer, toBase64 } from "@/utils/shimmer";
 
 function Card2({ game, typeClass = "" }) {
   return (

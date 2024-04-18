@@ -10,8 +10,9 @@ export default function Construction() {
         className={styles.cons__Image}
         src="https://www.riotgames.com/darkroom/2880/4f0a61cae53df771e8bfa97deadc0d5d:df1b70bb235cdb62e9ec5f0419a52a23/01pz056-full.png"
         alt="Under construction image"
-        width={1000}
-        height={600}
+        width={500}
+        height={300}
+        priority={true}
       />
       <h1 className={styles.cons__Title}>Under Construction...</h1>
       <p className={styles.cons__Message}>
