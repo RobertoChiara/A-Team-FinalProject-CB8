@@ -122,6 +122,9 @@
 
       &:hover {
         transform: scale(1.2);
+        color: gold;
+        border: 1px solid gold;
+        box-shadow: 0 0 10px gold;
       }
     }
   }
