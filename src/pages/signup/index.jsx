@@ -133,7 +133,7 @@ export default function SignUp() {
         </div>
         <input type="hidden" name="avatar" value={avatar} />
         <button type="submit" className={styles.signup__btn}>
-          Sign Up
+          Sign up
         </button>
       </form>
       {isModalOpen && <p>{modalMessage}</p>}

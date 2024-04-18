@@ -3,7 +3,6 @@ import "@/styles/globals.scss";
 import Menu from "@/components/menu";
 import Footer from "@/components/footer/Footer";
 import { useRouter } from "next/router";
-
 import { AuthProvider } from "./api/authContext";
 
 export default function App({ Component, pageProps }) {
@@ -12,7 +11,11 @@ export default function App({ Component, pageProps }) {
     <>
       <AuthProvider>
         <Navbar />
-        <main className="main-layout">
+        <main
+          className={`main-layout ${
+            router.pathname === "/signup" ? "main-layout__signup" : ""
+          }`}
+        >
           <Component {...pageProps} />
         </main>
         <Menu />

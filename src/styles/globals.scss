@@ -47,7 +47,6 @@
 body {
   color: white;
   background-color: var(--main-bg-color);
-  // overflow: hidden;
 }
 
 ul {
@@ -76,13 +75,19 @@ svg {
 .main-layout {
   max-width: 1440px;
 
-  // overflow-y: auto;
   margin-inline: auto;
   margin-top: 70px;
   margin-bottom: 50px;
   padding-inline: 16px;
   @include mixins.breakpoint(laptop) {
     padding-inline: 40px;
-    margin-bottom: 50px;
+  }
+}
+
+.main-layout__signup {
+  margin-bottom: 90px;
+
+  @include mixins.breakpoint(laptop) {
+    margin-bottom: 20px;
   }
 }

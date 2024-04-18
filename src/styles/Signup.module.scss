@@ -1,22 +1,28 @@
+@use "../assets/mixins";
+
 .signup__container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  height: 50vh;
-  gap: 1.1rem;
-  border: 2px solid azure;
+  @include mixins.flex(column, center, center, 1.1rem);
+  font-family: "VT323", monospace;
+  min-height: calc(100vh - 49px);
+  border: 1px solid aqua;
   border-radius: 10px;
-  background: rgb(63, 94, 251);
+  padding: 10px;
   background: linear-gradient(
     90deg,
-    rgba(63, 94, 251, 1) 0%,
-    rgba(252, 70, 107, 1) 100%
+    rgba(0, 255, 255, 0.062),
+    #000000,
+    rgba(0, 255, 255, 0.062)
   );
+
+  @include mixins.breakpoint(laptop) {
+    width: 70vw;
+    margin-inline: auto;
+  }
 
   .signup__title {
     font-size: 3rem;
-    font-weight: 600;
+    color: deeppink;
+    text-shadow: 0 0 7px deeppink;
   }
 
   .signup__form {
@@ -38,11 +44,20 @@
   }
 
   .signup__input {
+    font-family: inherit;
+    font-size: 20px;
     padding: 0.5rem;
     border-radius: 5px;
-    border: none;
+    border: 1px solid aqua;
+    border-radius: 8px;
+    box-shadow: 0 0 10px aqua;
     outline: none;
-    box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
+    background-color: #19191d;
+    color: aqua;
+  }
+
+  .avatarP {
+    text-align: center;
   }
 
   .avatarGrid {
@@ -51,22 +66,22 @@
     gap: 10px;
     width: 180px;
     height: 180px;
+    place-self: center;
 
     img {
       width: 100%;
       height: auto;
       border-radius: 50%;
       cursor: pointer;
-      transition: transform 0.3s ease, border 0.3s ease;
+      transition: all 0.3s ease;
+      box-shadow: 0 0 10px aqua;
 
       &.selected {
-        transform: scale(1.1);
-        border: 2px solid white;
+        border: 2px solid aqua;
       }
 
       &:hover {
-        transform: scale(1.1);
-        border: 2px solid white;
+        border: 2px solid aqua;
       }
     }
   }
@@ -75,11 +90,12 @@
     padding: 0.5rem;
     margin-top: 1.5rem;
     border-radius: 5px;
-    border: none;
-    outline: none;
-    background-color: #ff2a6d;
-    color: #ffffff;
-    box-shadow: 0 0 50px 15px #48abe0;
+    border: 1px solid #ec2593;
+    background-color: transparent;
+    box-shadow: 0 0 10px #ec2593;
+    color: #ffff;
+    text-shadow: 0 0 10px #ec2593;
+
     cursor: pointer;
   }
 }
