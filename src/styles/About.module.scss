@@ -2,6 +2,7 @@
 
 .about__Container {
   @include mixins.flex(column, center, center, 20px);
+  min-height: calc(90vh - 49px);
 
   @include mixins.breakpoint(laptop) {
     .link {

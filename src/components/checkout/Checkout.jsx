@@ -84,10 +84,11 @@ function Checkout({ allGamesInCart, onPurchase }) {
         </div>
         <div>
           <div className={styles.dcodeContainer}>
-            <label htmlFor="codice">Insert discount code:</label>
+            <label>Discount code:</label>
             <input
               type="text"
               id="codice"
+              placeholder="Your code here.."
               className={styles.codeBar}
               onChange={handleInputChangeDiscount}
             />
@@ -98,13 +99,20 @@ function Checkout({ allGamesInCart, onPurchase }) {
             >
               Apply
             </button>
-            <label htmlFor="metodo">Select you payment method</label>
-            <select id="metodo" name="metodo" className={styles.codeBar}>
-              <option value="">Select..</option>
-              <option value="paypal">PayPal</option>
-              <option value="Credit Card">Credit Card</option>
-              <option value="Klarna">Klarna</option>
-              <option value="bank transfer">Bank transfer</option>
+            <label htmlFor="metodo">Payment method</label>
+            <select className={styles.paySelect}>
+              <option className={styles.payMethod} value="paypal">
+                PayPal
+              </option>
+              <option className={styles.payMethod} value="Credit Card">
+                Credit Card
+              </option>
+              <option className={styles.payMethod} value="Klarna">
+                Klarna
+              </option>
+              <option className={styles.payMethod} value="bank transfer">
+                Bank transfer
+              </option>
             </select>
           </div>
           <div className={styles.buyButtonContainer}>
@@ -113,7 +121,7 @@ function Checkout({ allGamesInCart, onPurchase }) {
               className={styles.buyButton}
               onClick={processCheckout}
             >
-              Proceed to Checkout
+              Buy!
             </button>
           </div>
         </div>
