@@ -3,6 +3,7 @@ import styles from "../../styles/Signup.module.scss";
 import { avatars } from "../../mocks/avatar";
 import Image from "next/image";
 import { useRouter } from "next/router";
+import PasswordToggle from "../../components/passwordToggle/PasswordToggle";
 
 export default function SignUp() {
   const [username, setUsername] = useState("");
@@ -11,6 +12,8 @@ export default function SignUp() {
   const [avatar, setAvatar] = useState("");
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [modalMessage, setModalMessage] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
+  const [showConPassword, setShowConPassword] = useState(false);
   const router = useRouter();
 
   const handleSubmit = async (event) => {
@@ -22,6 +25,12 @@ export default function SignUp() {
 
     if (password !== confirmPassword) {
       setModalMessage("Passwords do not match");
+      setIsModalOpen(true);
+      return;
+    }
+
+    if (!avatar) {
+      setModalMessage("Please select an avatar");
       setIsModalOpen(true);
       return;
     }
@@ -67,27 +76,44 @@ export default function SignUp() {
           value={username}
           onChange={(e) => setUsername(e.target.value)}
         />
-        <input
-          className={styles.signup__input}
-          type="password"
-          name="password"
-          placeholder="Password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-        />
-        <input
-          className={styles.signup__input}
-          type="password"
-          name="confirmPassword"
-          placeholder="Confirm Password"
-          value={confirmPassword}
-          onChange={(e) => setConfirmPassword(e.target.value)}
-        />
+        <div className={styles.inputWrapper}>
+          <input
+            className={styles.signup__input}
+            type={showPassword ? "text" : "password"}
+            name="password"
+            placeholder="Password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+          />
+          <div className={styles.password__Toggle}>
+            <PasswordToggle
+              showPassword={showPassword}
+              setShowPassword={setShowPassword}
+            />
+          </div>
+        </div>
+        <div className={styles.inputWrapper}>
+          <input
+            className={styles.signup__input}
+            type={showConPassword ? "text" : "password"}
+            name="confirmPassword"
+            placeholder="Confirm Password"
+            value={confirmPassword}
+            onChange={(e) => setConfirmPassword(e.target.value)}
+          />
+          <div className={styles.password__Toggle}>
+            <PasswordToggle
+              showPassword={showConPassword}
+              setShowPassword={setShowConPassword}
+            />
+          </div>
+        </div>
         <input
           className={styles.signup__input}
           type="hidden"
           name="avatar"
           placeholder="Avatar"
+          required
           value={avatar}
           onChange={(e) => setAvatar(e.target.value)}
         />

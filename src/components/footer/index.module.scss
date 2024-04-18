@@ -23,7 +23,6 @@
     .aboutUs {
       @include mixins.flex(column, center, center);
       width: 100%;
-      border: 1px solid white;
 
       img {
         width: 150px;

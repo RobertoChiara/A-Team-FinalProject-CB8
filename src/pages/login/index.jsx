@@ -3,6 +3,8 @@ import { useRouter } from "next/router";
 import { AuthContext } from "../api/authContext";
 import styles from "../../styles/Login.module.scss";
 import Image from "next/image";
+import PasswordToggle from "../../components/passwordToggle/PasswordToggle";
+
 const Login = () => {
   const router = useRouter();
   const { authenticate } = useContext(AuthContext);
@@ -10,6 +12,7 @@ const Login = () => {
   const [password, setPassword] = useState("");
   const [modalMessage, setModalMessage] = useState("");
   const [modalVisible, setModalVisible] = useState(false);
+  const [showPassword, setShowPassword] = useState(false);
 
   useEffect(() => {
     const storedUsername = localStorage.getItem("username");
@@ -50,7 +53,7 @@ const Login = () => {
         authenticate(data.accessToken, username);
         setModalMessage("Login successful!");
         setModalVisible(true);
-        fetchUserAndSetAvatar(username); // Call the function to fetch user data and set avatar
+        fetchUserAndSetAvatar(username);
         const { redirect } = router.query;
         if (redirect) {
           router.push(decodeURIComponent(redirect));
@@ -82,22 +85,31 @@ const Login = () => {
           width={100}
           priority={true}
         />
-        {/* <h2 className={styles.login__title}>Login</h2> */}
         <form className={styles.login__form} onSubmit={handleSubmit}>
-          <input
-            className={styles.login__input}
-            type="text"
-            placeholder="Username"
-            value={username}
-            onChange={(e) => setUsername(e.target.value)}
-          />
-          <input
-            className={styles.login__input}
-            type="password"
-            placeholder="Password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-          />
+          <div className={styles.inputWrapper}>
+            <input
+              className={styles.login__input}
+              type="text"
+              placeholder="Username"
+              value={username}
+              onChange={(e) => setUsername(e.target.value)}
+            />
+          </div>
+          <div className={styles.inputWrapper}>
+            <input
+              className={styles.login__input}
+              type={showPassword ? "text" : "password"}
+              placeholder="Password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+            />
+            <div className={styles.password__Toggle}>
+              <PasswordToggle
+                showPassword={showPassword}
+                setShowPassword={setShowPassword}
+              />
+            </div>
+          </div>
           {modalVisible && <p>{modalMessage}</p>}
           <button type="submit" className={styles.login__btn}>
             Login
