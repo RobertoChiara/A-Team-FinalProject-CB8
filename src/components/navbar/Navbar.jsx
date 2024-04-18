@@ -88,9 +88,6 @@ const Navbar = () => {
         <div className={styles.navbar_userMenu}>
           {!isAuthenticated && (
             <>
-              <Link className={styles["btn-login"]} href="/login">
-                Login
-              </Link>
               <Link className={styles["btn-signup"]} href="/signup">
                 Signup
               </Link>

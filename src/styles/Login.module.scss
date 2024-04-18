@@ -78,16 +78,28 @@
       gap: 1rem;
     }
 
-    .login__input {
-      font-family: "VT323", monospace;
-      padding: 0.5rem;
-      border-radius: 5px;
-      border: 1px solid aqua;
-      border-radius: 8px;
-      box-shadow: 0 0 10px aqua;
-      outline: none;
-      background-color: #19191d;
-      color: aqua;
+    .inputWrapper {
+      position: relative;
+      .login__input {
+        font-family: "VT323", monospace;
+        padding: 0.5rem;
+        border-radius: 5px;
+        border: 1px solid aqua;
+        border-radius: 8px;
+        box-shadow: 0 0 10px aqua;
+        outline: none;
+        background-color: #19191d;
+        color: aqua;
+      }
+
+      .password__Toggle {
+        position: absolute;
+        top: 50%;
+        right: 10px;
+        transform: translateY(-50%);
+        color: #ec2593;
+        cursor: pointer;
+      }
     }
 
     .login__btn {

@@ -13,6 +13,12 @@ function Card2({ game, typeClass = "" }) {
           height={220}
           width={480}
           alt={game.name}
+          quality={80}
+          loading="lazy"
+          placeholder="blur"
+          blurDataURL={`data:image/svg+xml;base64,${toBase64(
+            shimmer(480, 220)
+          )}`}
         />
         <h4 className={styles[`${typeClass}__CardTitle`]}>{game.name}</h4>
       </Link>

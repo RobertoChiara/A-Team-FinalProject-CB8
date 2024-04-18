@@ -2,9 +2,16 @@
 
 .game {
   margin-bottom: 125px;
+  @include mixins.breakpoint(laptop) {
+    padding-inline: 30px;
+  }
 
   .image_container {
     position: relative;
+    height: 40vh;
+    @include mixins.breakpoint(laptop) {
+      height: calc(95vh - 49px);
+    }
 
     .image {
       width: 100%;
@@ -28,16 +35,24 @@
 
     &__img_container {
       position: relative;
-      min-width: 180px;
-      scroll-snap-align: flex-start;
+      min-width: 150px;
+      scroll-snap-align: start;
       padding-bottom: 10px;
+
+      @include mixins.breakpoint(laptop) {
+        min-width: 180px;
+      }
 
       .image__gallery {
         object-fit: cover;
         opacity: 1;
-        height: 120px;
+        height: 100px;
         border-radius: 8px;
         cursor: pointer;
+
+        @include mixins.breakpoint(laptop) {
+          height: 120px;
+        }
       }
 
       .hide-image__gallery {
