@@ -1,7 +1,7 @@
 @use "../../assets/mixins";
 
 .card {
-  background-color: none;
+  background-color: transparent; /* Instead of 'none' */
   display: flex;
   flex-direction: column;
   width: 250px;
@@ -44,7 +44,7 @@
     height: 30%;
     padding: 5px;
 
-    @include mixins.breakpoint(desktop) {
+    @include mixins.breakpoint(laptop) {
       height: 50%;
     }
 
@@ -58,16 +58,13 @@
       }
       @include mixins.breakpoint(laptop) {
         height: 70%;
-
         display: flex;
         flex-direction: column;
         justify-content: space-around;
-
         gap: 10px;
         h4 {
           font-size: 20px;
         }
-
         .rating {
           span {
             color: yellow;
@@ -77,13 +74,13 @@
       .platformIcon,
       .rating {
         display: none;
-
         @include mixins.breakpoint(laptop) {
           display: flex;
           gap: 10px;
         }
       }
     }
+
     .textCard_bottom {
       display: flex;
       justify-content: space-between;
@@ -102,7 +99,6 @@
 
 .card-home {
   scroll-snap-align: start;
-
   @include mixins.breakpoint(tablet) {
     width: 250px;
     height: 210px;
@@ -113,7 +109,6 @@
   @include mixins.breakpoint(laptop) {
     width: 280px;
     height: 300px;
-
     .card-img__container {
       height: 50%;
     }
@@ -124,32 +119,25 @@
   width: 345px;
   height: 250px;
   background-color: transparent;
-
   @include mixins.breakpoint(laptop) {
     width: 610px;
     height: 500px;
   }
-
   .card-img__container {
     height: 80%;
-
     @include mixins.breakpoint(laptop) {
       height: 300px;
     }
   }
-
   .textCard {
     height: 20%;
     display: flex;
-
     @include mixins.breakpoint(laptop) {
       height: 300px;
-
       p {
         display: flex;
       }
     }
-
     .textCard_upper {
       h4 {
         display: -webkit-box;
@@ -162,8 +150,36 @@
 }
 
 .card_store {
+  width: 100%;
+  height: 100%;
   transition: 0.3s;
-  &:hover {
-    transform: scale(1.1);
+  @include mixins.breakpoint(tablet) {
+    width: 310px;
+  }
+  @include mixins.breakpoint(laptop) {
+    width: 300px;
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+  .card-img__container {
+    height: 250px;
+    width: 350px;
+    @include mixins.breakpoint(tablet) {
+      height: 200px;
+    }
+    @include mixins.breakpoint(laptop) {
+      height: 200px;
+    }
+    .card-img {
+      width: 100%;
+      @include mixins.breakpoint(tablet) {
+        width: 300px;
+        height: 180px;
+      }
+      @include mixins.breakpoint(laptop) {
+        width: 300px;
+      }
+    }
   }
 }

@@ -26,6 +26,7 @@
 
       @media (min-width: 768px) {
         border: 1px solid aqua;
+        box-shadow: 0 0 10px aqua;
         background: rgba(0, 0, 0, 0.863);
         height: 100%;
         width: 100%;
@@ -61,6 +62,7 @@
             font-size: 24px;
             background: none;
             color: white;
+            text-shadow: 2px 2px 4px #ec2593;
           }
 
           .dropdown_content {

@@ -1,41 +1,95 @@
 @use "../assets/mixins";
+.user_page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 90vh;
 
-.user__Container {
-  @include mixins.flex(column, center, center);
+  .user__Container {
+    position: relative;
+    top: -35px;
+    border: 1px solid aqua;
+    padding: 10px;
+    @include mixins.flex(column, center, center);
+    height: 75vh;
+    width: 90vw;
+    box-shadow: 0 0 10px aqua;
+    border-radius: 10px;
+    background: linear-gradient(
+      90deg,
+      rgba(0, 255, 255, 0.062),
+      #000000,
+      rgba(0, 255, 255, 0.062)
+    );
+    @include mixins.breakpoint(tablet) {
+      width: 70vw;
+      height: 70vh;
+    }
+    @include mixins.breakpoint(laptop) {
+      top: 0;
+      height: 80vh;
+      width: 50vw;
+    }
+    @include mixins.breakpoint(desktop) {
+      width: 30vw;
+      height: 80vh;
+    }
 
-  .user__Image {
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-    margin-bottom: 20px;
-  }
+    .user__Image {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      border: 1px solid aqua;
+      box-shadow: 0 0 10px aqua;
+      margin-bottom: 20px;
+    }
 
-  .user__Name {
-    font-size: 36px;
-    font-weight: 700;
-    margin-bottom: 10px;
-  }
+    .user__Name {
+      text-transform: capitalize;
+      font-size: 36px;
+      text-shadow: 0 0 8px aqua;
 
-  .user__ListContainer {
-    @include mixins.flex(row, center, center);
-    margin-top: 20px;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
 
-    .user__List {
+    .user__ListContainer {
+      @include mixins.flex(column, inherit, flex-start);
       margin-top: 20px;
       padding: 10px;
-      border-radius: 10px;
-      border: 2px solid #00ffff;
-      list-style-type: none;
+      gap: 25px;
+
+      .wishlist_container,
+      .cart_container,
+      .library_container {
+        h2 {
+          color: #ffa5d7;
+          text-shadow: 0 0 8px #ec2593;
+        }
+        .text_content {
+          margin-top: 5px;
+          list-style-type: none;
+          span {
+            font-size: 20px;
+            color: aqua;
+            text-shadow: 0 0 10px aqua;
+          }
+        }
+      }
     }
-  }
-  .user__Btn {
-    margin-top: 20px;
-    padding: 10px 20px;
-    border-radius: 10px;
-    background-color: #00ffff;
-    color: #000000;
-    font-size: 18px;
-    font-weight: 700;
-    cursor: pointer;
+    .user__Btn {
+      margin-top: 20px;
+      padding: 10px 20px;
+      border-radius: 10px;
+      border: 1px solid aqua;
+      box-shadow: 0 0 10px aqua;
+      background: none;
+      color: rgb(255, 255, 255);
+      text-shadow: 0 0 10px aqua;
+      font-size: 18px;
+      font-weight: 700;
+      cursor: pointer;
+    }
   }
 }

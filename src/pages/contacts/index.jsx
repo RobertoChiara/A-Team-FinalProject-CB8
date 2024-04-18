@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { useRouter } from "next/router";
 import styles from "../../styles/Contact.module.scss";
-import Link from "next/link";
 
 const Contact = () => {
   const [name, setName] = useState("");

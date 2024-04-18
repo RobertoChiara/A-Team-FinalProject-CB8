@@ -1,11 +1,13 @@
 @use "../assets/mixins";
 
 .contact {
+  border: 2px solid red;
   @include mixins.flex(column, space-between, center, 40px);
   background: linear-gradient(45deg, #2196f3, #e91e63);
   padding: 2rem 0;
   text-align: center;
   width: 100%;
+
   color: #01012b;
 
   .container {

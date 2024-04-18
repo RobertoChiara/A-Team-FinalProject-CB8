@@ -32,7 +32,7 @@ export const teamData = [
   {
     name: "Giuseppe Senettone",
     github: "https://github.com/giusene",
-    image: "/images/giusene.jpeg",
+    image: "/images/Giusene.jpeg",
     role: "Team Leader",
   },
 ];

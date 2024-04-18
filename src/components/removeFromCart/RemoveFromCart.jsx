@@ -1,6 +1,7 @@
 import { BsCartX } from "react-icons/bs";
 import { useState } from "react";
 import Modal from "../modal/Modal";
+import styles from "./index.module.scss";
 
 const RemoveFromCartButton = ({ game, onRemove }) => {
   const [showModal, setShowModal] = useState(false);
@@ -58,7 +59,7 @@ const RemoveFromCartButton = ({ game, onRemove }) => {
       {showModal && (
         <Modal onClose={() => setShowModal(false)}>{modalMessage}</Modal>
       )}
-      <button>
+      <button className={styles.cart_btn}>
         <BsCartX onClick={handleRemoveFromCart} />
       </button>
     </>

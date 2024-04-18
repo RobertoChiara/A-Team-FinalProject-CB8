@@ -3,12 +3,24 @@ import { useState, useEffect } from "react";
 import Modal from "../modal/Modal";
 import styles from "./index.module.scss";
 
-const AddToCartButton = ({ game }) => {
+const AddToCartButton = ({ game, onRemoveFromWishlist }) => {
   const [showModalNoUsername, setshowModalNoUsername] = useState(false);
   const [showModalAddtoCart, setshowModalAddtoCart] = useState(false);
   const [showModalAlreadyInCart, setshowModalAlreadyInCart] = useState(false);
   const username =
     typeof window !== "undefined" && localStorage.getItem("username");
+
+  useEffect(() => {
+    let timer;
+    if (showModalAddtoCart || showModalNoUsername || showModalAlreadyInCart) {
+      timer = setTimeout(() => {
+        setshowModalAddtoCart(false);
+        setshowModalNoUsername(false);
+        setshowModalAlreadyInCart(false);
+      }, 2000);
+    }
+    return () => clearTimeout(timer);
+  }, [showModalAddtoCart, showModalNoUsername, showModalAlreadyInCart]);
 
   const handleAddToCart = async () => {
     console.log("Button clicked");
@@ -46,6 +58,9 @@ const AddToCartButton = ({ game }) => {
 
       if (data.success === true) {
         setshowModalAddtoCart(true);
+        if (onRemoveFromWishlist) {
+          onRemoveFromWishlist(game.slug);
+        }
       }
       if (data.message === "Game already in cart") {
         setshowModalAlreadyInCart(true);
@@ -59,17 +74,6 @@ const AddToCartButton = ({ game }) => {
       console.error("An error occurred:", error);
     }
   };
-
-  useEffect(() => {
-    if (showModalNoUsername || showModalAddtoCart || showModalAlreadyInCart) {
-      const timer = setTimeout(() => {
-        setshowModalNoUsername(false);
-        setshowModalAddtoCart(false);
-        setshowModalAlreadyInCart(false);
-      }, 2000);
-      return () => clearTimeout(timer);
-    }
-  }, [showModalNoUsername, showModalAddtoCart, showModalAlreadyInCart]);
 
   return (
     <>

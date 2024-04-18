@@ -10,6 +10,10 @@
   align-items: center;
   margin-bottom: 65px;
 
+  @include mixins.breakpoint(laptop) {
+    margin: 0;
+  }
+
   .footer_position {
     display: flex;
     flex-direction: column;

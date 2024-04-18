@@ -3,7 +3,6 @@ import withAuth from "./../../components/withAuth/WithAuth";
 import RemoveFromCartButton from "../../components/removeFromCart/RemoveFromCart";
 import Card2 from "../../components/card2/Card2";
 import styles from "../../styles/Cart.module.scss";
-
 import Checkout from "@/components/checkout";
 
 function Cart() {
@@ -67,17 +66,19 @@ function Cart() {
 
   return (
     <div className={styles.cart}>
-      <h2 className={styles.cart__Title}>List of games in your carted</h2>
-
+      <h2 className={styles.cart__Title}>List of games in your cart</h2>
       <div className={styles.cardContainer}>
         {cart && cart.length > 0 ? (
           cart.map((game) => {
             return (
               <div key={game.slug} className={styles.card}>
-                <Card2 game={game} />
-                <div className={styles.button}>
-                  <RemoveFromCartButton game={game} onRemove={removeFromCart} />
-                </div>
+                <Card2
+                  typeClass="cart__Card"
+                  typeClassTitle="cart__CardTitle"
+                  typeClassImage="cart__CardImage"
+                  game={game}
+                />
+                <RemoveFromCartButton game={game} onRemove={removeFromCart} />
               </div>
             );
           })

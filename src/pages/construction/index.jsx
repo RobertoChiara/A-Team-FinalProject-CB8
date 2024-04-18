@@ -5,19 +5,22 @@ import Link from "next/link";
 
 export default function Construction() {
   return (
-    <div className={styles.container}>
+    <div className={styles.cons__Container}>
       <Image
-        src="https://www.ft.com/__origami/service/image/v2/images/raw/ftcms%3Aefbbee02-5bb4-11e3-a2ba-00144feabdc0?source=next-article&fit=scale-down&quality=highest&width=700&dpr=2"
+        className={styles.cons__Image}
+        src="https://www.riotgames.com/darkroom/2880/4f0a61cae53df771e8bfa97deadc0d5d:df1b70bb235cdb62e9ec5f0419a52a23/01pz056-full.png"
         alt="Under construction image"
         width={1000}
         height={600}
       />
-      <h1 className={styles.title}>Under Construction</h1>
-      <p className={styles.message}>
+      <h1 className={styles.cons__Title}>Under Construction</h1>
+      <p className={styles.cons__Message}>
         We are working hard to finish the development of this site. Sign up for
         updates using the link below!
       </p>
-      <Link href="/contacts">Here</Link>
+      <Link href="/contacts">
+        <button className={styles.cons__Button}>Here</button>
+      </Link>
     </div>
   );
 }

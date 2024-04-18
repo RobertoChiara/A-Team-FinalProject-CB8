@@ -33,7 +33,8 @@ export const gamesFilter = (data) => {
   console.log(platformFilter);
 
   const slugFilter = platformFilter.filter(
-    (item) => item.slug !== "slappy-ass"
+    (item) =>
+      item.slug !== "slappy-ass" && item.slug !== "muhammad-sex-simulator-2015"
   );
   return slugFilter;
 };

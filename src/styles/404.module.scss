@@ -1,20 +1,38 @@
+@use "../assets/mixins";
+
 .page_404 {
   width: 100%;
-  min-height: calc(100vh - 350px);
-  .button {
-    background-color: #007bff;
+  min-height: calc(100vh - 170px);
+  @include mixins.flex(column, center, center, 20px);
+
+  @include mixins.breakpoint(laptop) {
+    min-height: calc(100vh - 49px);
+    @include mixins.flex(column, center, center, 30px);
+  }
+
+  .page_404__img {
+    object-fit: cover;
+    width: 100%;
+    height: auto;
+
+    @include mixins.breakpoint(laptop) {
+      width: 600px;
+    }
+  }
+
+  &__btn {
+    background-color: var(--main-color);
     color: white;
+    font-family: inherit;
     border: none;
     padding: 10px 20px;
     font-size: 16px;
+    border-radius: 7px;
     cursor: pointer;
-    transition: all 0.3s;
-    -moz-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
-    -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
 
-    &:hover {
-      background-color: #0056b3;
+    @include mixins.breakpoint(laptop) {
+      padding: 15px 30px;
+      font-size: 24px;
     }
   }
 }

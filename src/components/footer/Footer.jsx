@@ -16,26 +16,42 @@ const Footer = () => {
             <Link href="/about">
               <button>About Us</button>
             </Link>
-            <button>Download</button>
-            <button>Work with Us</button>
+            <Link href="/construction">
+              <button>Download</button>
+            </Link>
+            <Link href="/construction">
+              <button>Work with Us</button>
+            </Link>
           </div>
         </div>
 
         <div className={styles.partner}>
-          <h2>Partner</h2>
+          <h2>Partners</h2>
           <div className={styles.partner_btn}>
-            <button>Steam</button>
-            <button>Epic Games</button>
-            <button>Insta Gaming</button>
+            <Link href="https://store.steampowered.com/">
+              <button>Steam</button>
+            </Link>
+            <Link href="https://www.epicgames.com/">
+              <button>Epic Games</button>
+            </Link>
+            <Link href="https://www.instant-gaming.com/en/">
+              <button>Insta-Gaming</button>
+            </Link>
           </div>
         </div>
 
         <div className={styles.help}>
           <h3>Help</h3>
           <div className={styles.help_btn}>
-            <button>Contact Us</button>
-            <button>Shipping + Returns</button>
-            <button>FAQ</button>
+            <Link href="/contacts">
+              <button>Contact Us</button>
+            </Link>
+            <Link href="/construction">
+              <button>Shipping + Returns</button>
+            </Link>
+            <Link href="/construction">
+              <button>FAQ</button>
+            </Link>
           </div>
         </div>
 

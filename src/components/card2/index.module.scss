@@ -1,7 +1,6 @@
 @use "../../assets/mixins";
 .linkCard {
   @include mixins.flex(column, flex-start, flex-start);
-  text-align: left;
 }
 
 .lib__Card {
@@ -21,5 +20,29 @@
 
   .lib__CardP {
     display: none;
+  }
+}
+
+.cart__Card {
+  @include mixins.flex(column, flex-start, flex-start, 10px);
+
+  .cart__CardTitle {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+    overflow: hidden;
+  }
+
+  .cart__CardImage {
+    width: 200px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 15px 15px;
+
+    @include mixins.breakpoint(laptop) {
+      width: 150px;
+      height: 90px;
+      border-radius: 15px 15px;
+    }
   }
 }

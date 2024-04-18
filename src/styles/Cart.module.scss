@@ -14,63 +14,18 @@
   }
 
   .cardContainer {
-    @include mixins.flex(column, space-between, center, 40px);
-    width: 100%;
+    @include mixins.flex(column, flex-start, center);
   }
 
   .card {
-    @include mixins.flex(row, space-between, 40px);
-    height: 200px;
+    @include mixins.flex(row, space-between, center);
+    width: 100%;
     border-bottom: 1px solid #02ffff;
     padding: 10px;
 
-    @include mixins.breakpoint(mobile) {
-      @include mixins.flex(row, space-between, center);
-      width: 100%;
+    @include mixins.breakpoint(laptop) {
       height: 200px;
-      border-bottom: 1px solid #02ffff;
-    }
-  }
-
-  .card img {
-    width: 150px;
-    height: 90px;
-    border-radius: 15px 15px;
-
-    @include mixins.breakpoint(mobile) {
-      width: 200px;
-      height: 150px;
-      object-fit: cover;
-
-      border-radius: 15px 15px;
-    }
-  }
-
-  .card h4 {
-    @include mixins.flex(column, space-around, center, 5px);
-    font-size: 14px;
-  }
-
-  .card p {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    gap: 5px;
-  }
-
-  .button {
-    padding: 8px;
-    background-color: deeppink;
-    color: white;
-    border: none;
-    border-radius: 8px;
-    box-shadow: 0 0 5px 5px rgb(85, 0, 255);
-    cursor: pointer;
-    transition: all ease-in-out 0.2s;
-
-    &:hover {
-      background-color: darkmagenta;
-      transform: scale(1.2);
+      width: 40%;
     }
   }
 }

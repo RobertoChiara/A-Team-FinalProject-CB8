@@ -5,27 +5,27 @@ import jwt from "jsonwebtoken";
 
 const secretKey = process.env.ACCESSTOKEN_SECRET;
 
-// Connect to MongoDB
 dbConnect();
-
 export default async function handler(req, res) {
   if (req.method === "POST") {
     try {
-      let { username, password } = req.body;
+      let { username, password, avatar } = req.body;
 
-      // Hash the password
+      const existingUser = await User.findOne({ username });
+      if (existingUser) {
+        return res.status(400).json({ message: "User already exists" });
+      }
+
       const hashedPassword = await bcrypt.hash(password, 10);
 
-      // Create a new user with the hashed password
       let newUser = new User({
         username,
         password: hashedPassword,
+        avatar,
       });
 
-      // Save the new user to the database
       await newUser.save();
 
-      // Generate JWT
       const token = jwt.sign({ userId: newUser._id }, secretKey, {
         expiresIn: "1h",
       });
@@ -37,7 +37,7 @@ export default async function handler(req, res) {
       });
     } catch (error) {
       console.error(error);
-      res.status(500).json({ message: "User already exists" });
+      res.status(500).json({ message: "Internal Server Error" });
     }
   } else {
     res.status(405).json({ message: "Method Not Allowed" });

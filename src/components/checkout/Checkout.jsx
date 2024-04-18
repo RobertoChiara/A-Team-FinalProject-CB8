@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from "react";
 import styles from "./index.module.scss";
+import Modal from "../../components/modal/Modal";
 
 function Checkout({ allGamesInCart, onPurchase }) {
+  const [showCheckoutModal, setShowCheckoutModal] = useState(false);
   const ids = allGamesInCart.map((game) => game.suggestions_count);
 
   const sumPrice = ids.reduce(
@@ -54,16 +56,25 @@ function Checkout({ allGamesInCart, onPurchase }) {
 
       if (data.success) {
         onPurchase();
+        setShowCheckoutModal(true);
       } else {
         console.error(`Error: ${data.message}`);
       }
     } catch (error) {
       console.error("An error occurred:", error);
     }
+    setTimeout(() => {
+      setShowCheckoutModal(false);
+    }, 2000);
   };
 
   return (
     <>
+      {showCheckoutModal && (
+        <Modal onClose={() => setShowCheckoutModal(false)}>
+          Thanks for your purchase! Games moved to library.
+        </Modal>
+      )}
       <div className={styles.checkoutContainer}>
         <h4>Checkout</h4>
         <div className={styles.pricesContainer}>
