@@ -104,10 +104,13 @@
         color: #ffff;
         text-shadow: 0 0 10px #ec2593;
         transform: translateX(50%);
+        transition: all 0.5s;
 
         &:hover {
           cursor: pointer;
-          transform: scale(1.1);
+          border: 1px solid aqua;
+          box-shadow: 0 0 10px aqua;
+          background-color: rgba(0, 255, 255, 0.116);
         }
       }
     }

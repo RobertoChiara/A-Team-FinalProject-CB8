@@ -27,6 +27,7 @@
     height: 250px;
     transition: 0.5s;
     border-radius: 8px;
+    width: 100%;
 
     @include mixins.breakpoint(tablet) {
       width: 100%;
