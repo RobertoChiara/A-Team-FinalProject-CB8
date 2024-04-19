@@ -30,7 +30,7 @@ To get started with NovaGaming locally, follow these steps:
 1. Clone this repository to your local machine.
 2. Install dependencies using `npm install`.
 3. Set up a MongoDB database either locally or using a cloud service like MongoDB Atlas.
-4. Create a `.env.local` file in the root directory and define the following environment variables:
+4. Create a `.env.local` file in the root directory and define the following environment variables: ACCESSTOKEN_SECRET= / DATABASE_URI= / NEXT_PUBLIC_API_KEY=
 5. Run the development server using `npm run dev`.
 6. Visit `http://localhost:3000` in your web browser to access NovaGaming in local.
 7. Visit `a-team-final-project-cb-8.vercel.app` in your web browser to access NovaGaming Deployment.
