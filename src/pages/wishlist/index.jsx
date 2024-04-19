@@ -62,7 +62,10 @@ function Wishlist() {
                     game={game}
                     onRemove={removeFromWishlist}
                   />
-                  <AddToCartButton game={game} onRemove={removeFromWishlist} />
+                  <AddToCartButton
+                    game={game}
+                    onRemoveFromWishlist={removeFromWishlist}
+                  />
                 </div>
               </div>
             );

@@ -10,15 +10,10 @@ const RemoveFromCartButton = ({ game, onRemove }) => {
     typeof window !== "undefined" && localStorage.getItem("username");
 
   const handleRemoveFromCart = async () => {
-    console.log("Button clicked");
-
     if (!username) {
-      console.log("No username");
       setShowModal(true);
       return;
     }
-
-    console.log("Username:", username);
 
     try {
       const res = await fetch("/api/cart", {
@@ -32,11 +27,7 @@ const RemoveFromCartButton = ({ game, onRemove }) => {
         }),
       });
 
-      console.log("Fetch request made");
-
       const data = await res.json();
-
-      console.log("Response:", data);
 
       if (!data.success) {
         throw new Error(data.message);

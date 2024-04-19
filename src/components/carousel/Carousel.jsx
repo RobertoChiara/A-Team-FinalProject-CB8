@@ -5,8 +5,6 @@ import { BiSolidGhost } from "react-icons/bi";
 import Spinner from "../spinner";
 import Image from "next/image";
 import Link from "next/link";
-// import AddToWishlistButton from "../AddToWishlistButton/AddToWishlistButton";
-// import AddToCartButton from "../AddToCartButton/AddToCartButton";
 import styles from "./index.module.scss";
 
 const Carousel = ({ data }) => {
@@ -63,10 +61,6 @@ const Carousel = ({ data }) => {
             )}
             <h3 className={styles.title}>{sortedData?.[handleIndex]?.name}</h3>
           </Link>
-          {/* <div className={styles.addIcon}>
-          <AddToCartButton game={sortedData[handleIndex]} />
-          <AddToWishlistButton game={sortedData[handleIndex]} />
-        </div> */}
         </section>
       </div>
       <ul className={styles.bullets}>

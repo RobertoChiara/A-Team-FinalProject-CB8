@@ -23,15 +23,10 @@ const AddToCartButton = ({ game, onRemoveFromWishlist }) => {
   }, [showModalAddtoCart, showModalNoUsername, showModalAlreadyInCart]);
 
   const handleAddToCart = async () => {
-    console.log("Button clicked");
-
     if (!username) {
-      console.log("No username");
       setshowModalNoUsername(true);
       return;
     }
-
-    console.log("Username:", username);
 
     try {
       const res = await fetch("/api/cart", {
@@ -50,24 +45,18 @@ const AddToCartButton = ({ game, onRemoveFromWishlist }) => {
         }),
       });
 
-      console.log("Fetch request made");
-
       const data = await res.json();
 
-      console.log("Response:", data);
+      if (onRemoveFromWishlist) {
+        onRemoveFromWishlist(game.slug);
+      }
 
       if (data.success === true) {
         setshowModalAddtoCart(true);
-        if (onRemoveFromWishlist) {
-          onRemoveFromWishlist(game.slug);
-        }
-      }
-      if (data.message === "Game already in cart") {
+      } else if (data.message === "Game already in cart") {
         setshowModalAlreadyInCart(true);
         return;
-      }
-
-      if (!data.success) {
+      } else {
         throw new Error(data.message);
       }
     } catch (error) {
