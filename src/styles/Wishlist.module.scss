@@ -1,7 +1,7 @@
 @use "../assets/mixins";
 
 .wish_page {
-  min-height: calc(100vh - 340px);
+  min-height: calc(100vh - 49px);
 
   display: flex;
   flex-direction: column;
@@ -18,25 +18,16 @@
     }
   }
   .wish__CardsContainer {
-    display: flex;
+    @include mixins.flex(row, center, flex-start, 15px);
     flex-wrap: wrap;
-    justify-content: center;
     .wish__CardContainer {
-      @include mixins.flex(column, center, center);
-      transition: 0.3s;
-      &:hover {
-        transform: scale(1.1);
-      }
+      @include mixins.flex(column, center, flex-start, 10px);
+      // transition: 0.3s;
+      // &:hover {
+      //   transform: scale(1.1);
+      // }
       .buttonContainer {
-        position: relative;
-        left: -100px;
-        top: -10px;
-        @include mixins.flex(row, flex-start, center, 10px);
-        padding: 8px;
-
-        @include mixins.breakpoint(laptop) {
-          left: -85px;
-        }
+        @include mixins.flex(row, flex-start, flex-start, 10px);
       }
     }
   }
