@@ -47,14 +47,7 @@ const RemoveFromWishlistButton = ({ game, onRemove }) => {
 
   return (
     <>
-      {showModal && (
-        <Modal
-          onClose={() => setShowModal(false)}
-          isModalVisible={showModal && true}
-        >
-          {modalMessage}
-        </Modal>
-      )}
+      {showModal && <Modal>{modalMessage}</Modal>}
       <button className={styles.button}>
         <FaHeartCircleMinus onClick={handleRemoveFromWishlist} />
       </button>

@@ -47,9 +47,11 @@ const AddToCartButton = ({ game, onRemoveFromWishlist }) => {
 
       const data = await res.json();
 
-      if (onRemoveFromWishlist) {
-        onRemoveFromWishlist(game.slug);
-      }
+      setTimeout(() => {
+        if (onRemoveFromWishlist) {
+          onRemoveFromWishlist(game.slug);
+        }
+      }, 2000);
 
       if (data.success === true) {
         setshowModalAddtoCart(true);
