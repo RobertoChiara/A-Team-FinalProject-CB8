@@ -21,10 +21,12 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    gap: 15px;
     .lib__CardContainer {
       @include mixins.flex(column, center, center);
       transition: 0.3s;
       &:hover {
+        border: 1px solid aqua;
         transform: scale(1.1);
       }
     }
