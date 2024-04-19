@@ -80,12 +80,14 @@
       .searchBar {
         @include mixins.flex(row, center, center);
         min-width: 100%;
-        border: none;
+        border: 1px solid aqua;
+        filter: drop-shadow(0px 0px 5px aqua);
         font-weight: bold;
         color: aqua;
         border-radius: 8px;
         padding: 8px;
-        background-color: #5f5f5fd2;
+
+        background-color: #2b2b2e;
         &:focus {
           outline: none;
         }
@@ -102,10 +104,12 @@
         height: 100%;
         display: flex;
         align-items: center;
+
         gap: 10px;
         p {
           text-transform: capitalize;
           font-size: 20px;
+
           text-align: center;
           font-weight: bold;
           color: aqua;
@@ -117,7 +121,7 @@
       }
       .icon-user {
         color: white;
-        font-size: 20px;
+        font-size: 34px;
       }
       .authenticated-icon-user {
         color: aqua;

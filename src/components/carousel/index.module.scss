@@ -74,6 +74,7 @@
 
   .addIcon {
     @include mixins.position(relative, auto, auto, 25px, auto);
+
     display: flex;
     justify-content: flex-end;
     margin-right: 5px;

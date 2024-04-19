@@ -4,6 +4,7 @@
   bottom: 0;
   width: 100%;
   height: 70px;
+  // background: linear-gradient(45deg, #1b7dceda, #e91e62d8);
   background-color: #19191dee;
   display: flex;
   justify-content: center;
@@ -42,11 +43,13 @@
           font-size: 1.5em;
           text-align: center;
           color: #fff;
+
           transition: 0.5s;
           z-index: 999;
         }
         .icon_active {
           transform: translateY(-30px);
+
           text-shadow: 1px 1px 4px aqua;
         }
 
@@ -81,6 +84,7 @@
         .circle_active {
           background-color: #ec2592;
           box-shadow: 0 0 15px #ec2593;
+
           transition: 0.5s;
           transition-delay: 0.2s;
           transform: translateY(-30px) scale(1);

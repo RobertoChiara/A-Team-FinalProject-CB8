@@ -5,11 +5,14 @@ import Modal from "../../components/modal/Modal";
 function Checkout({ allGamesInCart, onPurchase }) {
   const [showCheckoutModal, setShowCheckoutModal] = useState(false);
   const ids = allGamesInCart.map((game) => game.suggestions_count);
+
   const sumPrice = ids.reduce(
     (sum, suggestions_count) => sum + suggestions_count / 20,
     0
   );
+
   const roundedPrice = Math.round(sumPrice);
+
   const [discount, setDiscount] = useState(0);
   const [finalPrice, setfinalPrice] = useState(0);
   const [inputDiscountCode, setInputDiscountCode] = useState("");
@@ -31,6 +34,7 @@ function Checkout({ allGamesInCart, onPurchase }) {
       setfinalPrice((roundedPrice - (roundedPrice * 90) / 100).toFixed(0));
     } else {
       setDiscount(0);
+
       setfinalPrice(roundedPrice);
     }
   };

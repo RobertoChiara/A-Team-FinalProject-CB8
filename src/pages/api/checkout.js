@@ -1,6 +1,7 @@
 import dbConnect from "../../../db";
 import User from "../../../models/user";
 
+// Connect to MongoDB
 dbConnect();
 
 export default async function handler(req, res) {
@@ -16,10 +17,13 @@ export default async function handler(req, res) {
           .json({ success: false, message: "User not found" });
       }
 
+      // Add all games from cart to library
       user.library.push(...user.cart);
 
+      // Empty the cart
       user.cart = [];
 
+      // Save the user
       await user.save();
 
       res.status(200).json({ success: true, message: "Checkout successful" });

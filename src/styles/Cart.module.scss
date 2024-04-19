@@ -15,14 +15,17 @@
 
   .cardContainer {
     @include mixins.flex(column, flex-start, center);
+    gap: 20px;
     .card {
       @include mixins.flex(row, space-between, center);
       width: 100%;
+
       border-bottom: 1px solid #02ffff;
+
       padding: 10px;
 
       @include mixins.breakpoint(laptop) {
-        height: 200px;
+        height: 220px;
         width: 40%;
       }
     }

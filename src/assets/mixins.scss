@@ -1,3 +1,7 @@
+//Display flex mixin
+//"row" is the default value for flex-direction
+//"flex-start" or "inherit" is the default value for justify-content and align-items
+
 @mixin flex($dir: row, $just: flex-start, $align: flex-start, $gap: 0) {
   display: flex;
   flex-direction: $dir;
@@ -6,6 +10,9 @@
   gap: $gap;
 }
 
+//Position absolute/relative/fixed mixin
+//"auto" is the default value for top-right-bottom-left
+
 @mixin position($pos, $top: auto, $right: auto, $bottom: auto, $left: auto) {
   position: $pos;
   top: $top;
@@ -13,6 +20,8 @@
   bottom: $bottom;
   left: $left;
 }
+
+//Media queries mixin
 
 @mixin breakpoint($point) {
   @if $point == mobile {

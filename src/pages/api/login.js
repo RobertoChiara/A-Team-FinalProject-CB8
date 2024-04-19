@@ -3,6 +3,7 @@ import User from "../../../models/user";
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
 
+// Connect to MongoDB
 dbConnect();
 
 export default async function handler(req, res) {

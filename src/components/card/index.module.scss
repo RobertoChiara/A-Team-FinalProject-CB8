@@ -1,7 +1,7 @@
 @use "../../assets/mixins";
 
 .card {
-  background-color: transparent;
+  background-color: transparent; /* Instead of 'none' */
   display: flex;
   flex-direction: column;
   width: 250px;
@@ -104,6 +104,10 @@
   @include mixins.breakpoint(laptop) {
     width: 280px;
     height: 300px;
+    &:hover {
+      border: 1px solid aqua;
+    }
+
     .card-img__container {
       height: 50%;
     }
