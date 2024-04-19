@@ -16,11 +16,11 @@ export default function Construction() {
       />
       <h1 className={styles.cons__Title}>Under Construction...</h1>
       <p className={styles.cons__Message}>
-        We are working hard to finish the development of this site. Sign up for
-        updates using the link below!
+        We are working hard to finish the development of this site. Go back to
+        home page.
       </p>
-      <Link href="/contacts">
-        <button className={styles.cons__Button}>Here</button>
+      <Link href="/">
+        <button className={styles.cons__Button}>Home</button>
       </Link>
     </div>
   );
