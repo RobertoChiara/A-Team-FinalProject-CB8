@@ -2,8 +2,7 @@
 
 .pref__Card,
 .lib__Card {
-  @include mixins.flex(wrap, center, center);
-  padding: 15px;
+  @include mixins.flex(row, center, center);
 
   .pref__CardTitle,
   .lib__CardTitle {
