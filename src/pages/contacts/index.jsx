@@ -7,6 +7,7 @@ const Contact = () => {
   const [email, setEmail] = useState("");
   const [telephone, setTelephone] = useState("");
   const [message, setMessage] = useState("");
+  const [response, setResponse] = useState("");
   const router = useRouter();
 
   const handleSubmit = async (e) => {
@@ -22,16 +23,21 @@ const Contact = () => {
       });
 
       if (response.ok) {
-        alert("Message sent correctly!");
+        setResponse("Message sent correctly!");
         router.push("/");
       } else {
-        alert("Error sending message. Please try again later.");
+        setResponse("Error sending message. Please try again later.");
+        setTimeout(() => {
+          setResponse("");
+        }, 3000);
       }
     } catch (error) {
-      console.error(error);
-      alert(
+      setResponse(
         "A problem occurred while sending the message. Please try again later."
       );
+      setTimeout(() => {
+        setResponse("");
+      }, 3000);
     }
   };
 
@@ -90,6 +96,7 @@ const Contact = () => {
             Send Message
           </button>
         </form>
+        <p>{response}</p>
       </div>
     </div>
   );

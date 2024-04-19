@@ -11,11 +11,8 @@
   background-color: transparent;
 
   @include mixins.breakpoint(desktop) {
+    @include mixins.position(absolute, 70px, 5%);
     max-width: 400px;
-    padding: 20px;
-    position: fixed;
-    top: 100px;
-    right: 5%;
     padding: 20px;
     border-radius: 10px;
   }
@@ -45,7 +42,7 @@
       font-size: 18px;
       border-radius: 8px;
       box-shadow: 0 0 10px aqua;
-      cursor: pointer;
+      padding-left: 10px;
       transition: all ease-in-out 0.2s;
 
       &::placeholder {
