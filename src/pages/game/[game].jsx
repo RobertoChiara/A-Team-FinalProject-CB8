@@ -24,7 +24,6 @@ export const getServerSideProps = async (context) => {
 
 export default function GamePage({ game, screenshots }) {
   const [loaderImg, setLoaderImg] = useState(true);
-
   const [changeImage, setChangeImage] = useState(game.background_image);
 
   const handleLoaderImg = () => {
@@ -82,22 +81,17 @@ export default function GamePage({ game, screenshots }) {
           </div>
         ))}
       </div>
-
       <h1 className={styles.title}>{game.name}</h1>
-
       <div className={styles.description_container}>
         <h4 className={styles.price}>
           Price: <span>{priceInEuro}</span>
         </h4>
-
         <h4 className={styles.wishlisted}>
           Wishlisted: <span>{game.suggestions_count}</span>
         </h4>
-
         <h4 className={styles.released}>
           Released: <span>{game.released}</span>
         </h4>
-
         {game.metacritic && (
           <h4 className={styles.metacritic}>
             Metacritic: <span> {game.metacritic}</span>

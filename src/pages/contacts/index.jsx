@@ -62,7 +62,6 @@ const Contact = () => {
               required
             />
           </div>
-
           <div className={styles.inputGroup}>
             <label htmlFor="telephone">Telephone:</label>
             <input
@@ -74,7 +73,6 @@ const Contact = () => {
               required
             />
           </div>
-
           <div className={styles.inputGroup}>
             <label htmlFor="message">Message:</label>
             <textarea

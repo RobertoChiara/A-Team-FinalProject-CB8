@@ -23,15 +23,10 @@ const AddToCartButton = ({ game, onRemoveFromWishlist }) => {
   }, [showModalAddtoCart, showModalNoUsername, showModalAlreadyInCart]);
 
   const handleAddToCart = async () => {
-    console.log("Button clicked");
-
     if (!username) {
-      console.log("No username");
       setshowModalNoUsername(true);
       return;
     }
-
-    console.log("Username:", username);
 
     try {
       const res = await fetch("/api/cart", {
@@ -50,11 +45,7 @@ const AddToCartButton = ({ game, onRemoveFromWishlist }) => {
         }),
       });
 
-      console.log("Fetch request made");
-
       const data = await res.json();
-
-      console.log("Response:", data);
 
       if (data.success === true) {
         setshowModalAddtoCart(true);

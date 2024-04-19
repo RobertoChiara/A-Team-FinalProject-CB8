@@ -1,7 +1,6 @@
 import dbConnect from "../../../db";
 import User from "../../../models/user";
 
-// Connect to MongoDB
 dbConnect();
 
 export default async function handler(req, res) {
@@ -56,7 +55,6 @@ export default async function handler(req, res) {
     try {
       const { username } = req.body;
 
-      // find the user
       const user = await User.findOne({ username });
       if (!user) {
         return res
@@ -64,7 +62,6 @@ export default async function handler(req, res) {
           .json({ success: false, message: "User not found" });
       }
 
-      // remove the game from the user's cart
       const gameIndex = user.cart.findIndex(
         (cartGame) => cartGame.slug === req.body.gameSlug
       );

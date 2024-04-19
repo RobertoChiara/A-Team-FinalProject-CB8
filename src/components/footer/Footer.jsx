@@ -2,7 +2,6 @@ import React from "react";
 import styles from "./index.module.scss";
 import Link from "next/link";
 import Image from "next/image";
-
 import { FaFacebookSquare, FaInstagram } from "react-icons/fa";
 import { FaSquareXTwitter, FaSquareYoutube } from "react-icons/fa6";
 
@@ -70,23 +69,19 @@ const Footer = () => {
             <p>Sign up for our newsletter to get the latest news</p>
             <input type="text" id="email" placeholder="email" required />
           </div>
-
           <div className={styles.social}>
             <Link className={styles.facebook} href="https://www.facebook.com/">
               <FaFacebookSquare />
             </Link>
-
             <Link
               className={styles.instagram}
               href="https://www.instagram.com/"
             >
               <FaInstagram />
             </Link>
-
             <Link className={styles.twitter} href="https://twitter.com/">
               <FaSquareXTwitter />
             </Link>
-
             <Link className={styles.youtube} href="https://youtube.com/">
               <FaSquareYoutube />
             </Link>

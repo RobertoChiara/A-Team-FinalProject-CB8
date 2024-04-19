@@ -72,9 +72,9 @@
       width: 100%;
       height: auto;
       border-radius: 50%;
-      cursor: pointer;
       transition: all 0.3s ease;
       box-shadow: 0 0 10px aqua;
+      cursor: pointer;
 
       &.selected {
         border: 2px solid aqua;
@@ -95,7 +95,6 @@
     box-shadow: 0 0 10px #ec2593;
     color: #ffff;
     text-shadow: 0 0 10px #ec2593;
-
     cursor: pointer;
   }
 }

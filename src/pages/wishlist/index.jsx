@@ -56,7 +56,6 @@ function Wishlist() {
             return (
               <div key={game.slug} className={styles.wish__CardContainer}>
                 <Card2 game={game} key={game.slug} typeClass="pref" />
-
                 <div className={styles.buttonContainer}>
                   <RemoveFromWishlistButton
                     game={game}

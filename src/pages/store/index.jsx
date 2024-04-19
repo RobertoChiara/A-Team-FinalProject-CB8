@@ -8,7 +8,6 @@ import Pagination from "@/components/pagination";
 
 export const getServerSideProps = async (context) => {
   const { search, page, genres, parent_platforms } = context.query;
-
   const genresQuery = genres ? `&genres=${genres}` : "";
   const parentPlatformsQuery = parent_platforms
     ? `&parent_platforms=${parent_platforms}`
@@ -51,7 +50,6 @@ export default function Store({
 }) {
   const [showFilter, setShowFilter] = useState(false);
   const [isBlurred, setIsBlurred] = useState(false);
-
   const toggleFilter = () => {
     setShowFilter(!showFilter);
     setIsBlurred(!isBlurred);

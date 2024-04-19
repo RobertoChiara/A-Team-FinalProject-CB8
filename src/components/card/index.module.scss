@@ -1,7 +1,7 @@
 @use "../../assets/mixins";
 
 .card {
-  background-color: transparent; /* Instead of 'none' */
+  background-color: transparent;
   display: flex;
   flex-direction: column;
   width: 250px;

@@ -15,7 +15,6 @@
   .lib__CardImage {
     height: 180px;
     width: 480px;
-
     @include mixins.breakpoint(tablet) {
       width: 330px;
     }

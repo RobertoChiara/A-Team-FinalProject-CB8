@@ -1,7 +1,6 @@
 import dbConnect from "../../../db";
 import User from "../../../models/user";
 
-// Connect to MongoDB
 dbConnect();
 
 export default async function handler(req, res) {
