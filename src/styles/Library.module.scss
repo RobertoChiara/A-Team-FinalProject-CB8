@@ -1,9 +1,9 @@
 @use "../assets/mixins";
 .lib_page {
   min-height: calc(100vh - 340px);
-
   display: flex;
   flex-direction: column;
+
   .lib__title {
     font-family: "VT323", monospace;
     text-align: center;

@@ -20,13 +20,7 @@ const withAuth = (WrappedComponent) => {
     return <WrappedComponent {...props} />;
   };
 
-  // WithAuthWrapper.displayName = `WithAuth(${getDisplayName(WrappedComponent)})`;
-
   return WithAuthWrapper;
 };
-
-// function getDisplayName(WrappedComponent) {
-//   return WrappedComponent.displayName || WrappedComponent.name || "Component";
-// }
 
 export default withAuth;
