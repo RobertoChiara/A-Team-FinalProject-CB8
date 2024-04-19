@@ -104,6 +104,10 @@
   @include mixins.breakpoint(laptop) {
     width: 280px;
     height: 300px;
+    &:hover {
+      border: 1px solid aqua;
+    }
+
     .card-img__container {
       height: 50%;
     }

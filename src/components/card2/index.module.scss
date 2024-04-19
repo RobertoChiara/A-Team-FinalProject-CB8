@@ -9,6 +9,19 @@
   .lib__CardTitle {
     color: #ffffff;
     margin-top: 20px;
+    margin-left: 4px;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+    overflow: hidden;
+    margin-top: 10px;
+    @include mixins.breakpoint(tablet) {
+      width: 330px;
+
+      @include mixins.breakpoint(laptop) {
+        width: 300px;
+      }
+    }
   }
 
   .pref__CardImage,
@@ -32,24 +45,25 @@
 
 .cart__Card {
   @include mixins.flex(column, flex-start, flex-start, 10px);
+  margin-top: 20px;
 
   .cart__CardTitle {
+    max-width: 70%;
     display: -webkit-box;
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 1;
     overflow: hidden;
+    margin-top: 10px;
   }
 
   .cart__CardImage {
-    width: 200px;
-    height: 150px;
+    border: 1px solid deeppink;
+    box-shadow: 0 0 10px deeppink;
+    width: 230px;
+    height: 120px;
     object-fit: cover;
-    border-radius: 15px 15px;
 
     @include mixins.breakpoint(laptop) {
-      width: 150px;
-      height: 90px;
-      border-radius: 15px 15px;
     }
   }
 }

@@ -42,6 +42,7 @@
 
     .title {
       font-family: "Orbitron", sans-serif;
+      margin-top: 0.8rem;
       letter-spacing: 10px;
       font-size: 18px;
       text-shadow: 0px 0px 10px #ec2593;
@@ -52,23 +53,16 @@
     }
     .logo_login {
       display: flex;
-      width: 100px;
+      width: auto;
       height: 100px;
+
       filter: drop-shadow(0px 0px 5px #ec2593);
 
       @include mixins.breakpoint(tablet) {
-        width: 150px;
+        width: auto;
         height: 150px;
       }
     }
-
-    // .login__title {
-    //   text-shadow: 0px 0px 10px aqua;
-
-    //   @include mixins.breakpoint(tablet) {
-    //     font-size: 30px;
-    //   }
-    // }
 
     .login__form {
       margin-top: 20px;
@@ -89,7 +83,7 @@
         box-shadow: 0 0 10px aqua;
         outline: none;
         background-color: #19191d;
-        color: aqua;
+        color: deeppink;
       }
 
       .password__Toggle {
@@ -103,17 +97,28 @@
     }
 
     .login__btn {
+      font-family: "VT323", monospace;
       padding: 0.5rem;
       margin-top: 1.5rem;
+      margin-bottom: 0.8rem;
       border-radius: 5px;
-      border: 1px solid #ec2593;
       background-color: transparent;
-      box-shadow: 0 0 10px #ec2593;
 
+      border: 1px solid aqua;
+      box-shadow: 0 0 10px aqua;
+      font-size: 18px;
       color: #ffff;
       text-shadow: 0 0 10px #ec2593;
-
-      cursor: pointer;
+      &:hover {
+        border: 1px solid #ec2593;
+        box-shadow: 0 0 10px #ec2593;
+        background-color: rgba(255, 20, 145, 0.116);
+        cursor: pointer;
+      }
+      @include mixins.breakpoint(tablet) {
+        font-size: 22px;
+        padding: 7px 15px;
+      }
     }
   }
 }
