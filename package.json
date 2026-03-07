@@ -13,15 +13,16 @@
     "jsonwebtoken": "^9.0.2",
     "mongodb": "^6.5.0",
     "mongoose": "^8.3.1",
-    "next": "14.1.4",
-    "react": "^18",
-    "react-dom": "^18",
+    "next": "^16.1.6",
+    "react": "^19.2.4",
+    "react-dom": "^19.2.4",
     "react-icons": "^5.0.1",
-    "react-router-dom": "^6.22.3"
+    "react-router-dom": "^6.22.3",
+    "typescript-eslint": "^8.56.1"
   },
   "devDependencies": {
-    "eslint": "^8",
-    "eslint-config-next": "14.1.4",
+    "eslint": "^10.0.3",
+    "eslint-config-next": "^16.1.6",
     "sass": "^1.74.1"
   }
 }
