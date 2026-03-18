@@ -1,0 +1,54 @@
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.9); // Sfondo molto scuro
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  backdrop-filter: blur(8px); // Effetto sfocato figo dietro
+}
+
+.modalContent {
+  background-color: #1b2838; // Blu scuro tipico gaming
+  padding: 2.5rem;
+  border-radius: 8px;
+  max-width: 450px;
+  text-align: center;
+  color: #c7d5e0;
+  border: 1px solid #66c0f4; // Bordino azzurro stile Steam
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+
+  h2 {
+    color: #fff;
+    margin-bottom: 1rem;
+    font-size: 1.8rem;
+  }
+
+  p {
+    line-height: 1.6;
+    margin-bottom: 2rem;
+    strong {
+      color: #66c0f4;
+    }
+  }
+}
+
+.modalBtn {
+  background: linear-gradient(to right, #47bfff 0%, #1a44c2 100%);
+  color: white;
+  border: none;
+  padding: 12px 30px;
+  border-radius: 4px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform 0.2s;
+
+  &:hover {
+    transform: scale(1.05);
+    filter: brightness(1.2);
+  }
+}
